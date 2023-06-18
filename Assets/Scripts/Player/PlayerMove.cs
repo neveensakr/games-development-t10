@@ -38,6 +38,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        rb.velocity = new Vector2(movement.x * _movementSpeed, movement.y * _movementSpeed);
+        /* rb.velocity = new Vector2(movement.x * _movementSpeed, movement.y * _movementSpeed);*/
+        rb.velocity = movement * _movementSpeed;
     }
 }
