@@ -52,7 +52,7 @@ public class LoadManager : MonoBehaviour
     public static IEnumerator StartSceneCoroutine()
     {
         LoadingScreenManager.Instance.EnableLoadingScreen();
-        // TODO Deactivate player input.
+        InputManager.DeactivateInput();
         LoadingScreenManager.Instance.DisableLoadingScreen();
 
         Debug.Log("Start Scene Initialized");
@@ -65,7 +65,7 @@ public class LoadManager : MonoBehaviour
         // Set the loading scene as active
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("LoadingScene"));
         LoadingScreenManager.Instance.EnableLoadingScreen();
-        // TODO Deactivate player input before load.
+        InputManager.DeactivateInput();
         // It loads too fast, so wait a little
         if (SceneManager.GetSceneByName("StartScene").isLoaded)
         {
@@ -83,8 +83,6 @@ public class LoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenuScene"));
         // Remove the loading screen (fading out animation can be added here).
         LoadingScreenManager.Instance.DisableLoadingScreen();
-        
-        // TODO Enable player input.
 
         Debug.Log("Menu Initialized");
 
@@ -97,7 +95,7 @@ public class LoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("LoadingScene"));
         LoadingScreenManager.Instance.EnableLoadingScreen();
         
-        // TODO Deactivate player input before load.
+        InputManager.DeactivateInput();
         
         yield return Instance.StartCoroutine(UnloadSceneRoutine("MainMenuScene"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Extended Level"));
@@ -109,7 +107,7 @@ public class LoadManager : MonoBehaviour
         // TODO Load and initialize the hud scene.
 
         LoadingScreenManager.Instance.DisableLoadingScreen();
-        // TODO Enable player input.
+        InputManager.ActivateInput();
 
         Debug.Log("Game Initialized");
 
