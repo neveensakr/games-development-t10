@@ -37,7 +37,7 @@ public class LoadManager : MonoBehaviour
                 Instance.StartCoroutine(GoToMenu());
                 break;
             case "HudScene":
-                //Instance.StartCoroutine(InitalizeHud());
+                Instance.StartCoroutine(InitalizeHud());
                 break;
             default:
                 Instance.StartCoroutine(GoToGame());
@@ -103,13 +103,23 @@ public class LoadManager : MonoBehaviour
         // Load the game scene and set it as the active scene.
         yield return Instance.StartCoroutine(LoadSceneRoutine("Extended Level"));
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Extended Level"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
         
-        // TODO Load and initialize the hud scene.
-
         LoadingScreenManager.Instance.DisableLoadingScreen();
         InputManager.ActivateInput();
 
         Debug.Log("Game Initialized");
+
+        yield break;
+    }
+    
+    private static IEnumerator InitalizeHud()
+    {
+        InputManager.DeactivateInput();
+        // Load the hud scene.
+        yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
+
+        Debug.Log("HUD Initialized");
 
         yield break;
     }
