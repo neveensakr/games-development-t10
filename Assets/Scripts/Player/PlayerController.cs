@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.InputActivated)
         {
-            shooter.Fire();
+            if (Input.GetMouseButtonDown(0))
+            {
+                shooter.Fire();
+            }
         }
     }
 

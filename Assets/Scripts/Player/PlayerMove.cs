@@ -18,19 +18,25 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        // convert mouse position into world coordinates
-        Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (InputManager.InputActivated)
+        {
+            // convert mouse position into world coordinates
+            Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // get direction you want to point at
-        Vector2 direction = (mouseScreenPosition - (Vector2)transform.position).normalized;
+            // get direction you want to point at
+            Vector2 direction = (mouseScreenPosition - (Vector2)transform.position).normalized;
 
-        // set vector of transform directly
-        transform.up = direction;
+            // set vector of transform directly
+            transform.up = direction;
+        }
     }
 
     private void FixedUpdate()
     {
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        rb.velocity = movement * _movementSpeed;
+        if (InputManager.InputActivated)
+        {
+            Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            rb.velocity = movement * _movementSpeed;
+        }
     }
 }
