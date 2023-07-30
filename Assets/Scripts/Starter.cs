@@ -16,6 +16,7 @@ public static class Starter
         // Add a manger object that will contain the load manager.
         GameObject managerObj = new GameObject("Game Manager");
         managerObj.AddComponent<LoadManager>();
+        managerObj.AddComponent<GameManager>();
         Object.DontDestroyOnLoad(managerObj); // So that the manager stays no matter the scene.
         // Start the start routine from the Load manager.
         LoadManager.Instance.StartCoroutine(LoadManager.StartRoutine());
