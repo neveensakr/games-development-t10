@@ -39,6 +39,9 @@ public class LoadManager : MonoBehaviour
             case "HudScene":
                 Instance.StartCoroutine(InitalizeHud());
                 break;
+            case "Level 1":
+                Instance.StartCoroutine(GoToLevel1());
+                break;
             default:
                 Instance.StartCoroutine(GoToGame());
                 break;
@@ -74,8 +77,7 @@ public class LoadManager : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
         
-        yield return Instance.StartCoroutine(UnloadSceneRoutine("MainMenuScene"));
-        yield return Instance.StartCoroutine(UnloadSceneRoutine("Extended Level"));
+        yield return Instance.StartCoroutine(UnloadScenes());
 
         // Load the menu scene.
         yield return Instance.StartCoroutine(LoadSceneRoutine("MainMenuScene"));
@@ -97,8 +99,7 @@ public class LoadManager : MonoBehaviour
         
         InputManager.DeactivateInput();
         
-        yield return Instance.StartCoroutine(UnloadSceneRoutine("MainMenuScene"));
-        yield return Instance.StartCoroutine(UnloadSceneRoutine("Extended Level"));
+        yield return Instance.StartCoroutine(UnloadScenes());
 
         // Load the game scene and set it as the active scene.
         yield return Instance.StartCoroutine(LoadSceneRoutine("Extended Level"));
@@ -113,12 +114,40 @@ public class LoadManager : MonoBehaviour
         yield break;
     }
     
+    public static IEnumerator GoToLevel1()
+    {
+        // Set the loading scene as active
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("LoadingScene"));
+        LoadingScreenManager.Instance.EnableLoadingScreen();
+        
+        InputManager.DeactivateInput();
+        
+        yield return Instance.StartCoroutine(UnloadScenes());
+
+        // Load the game scene and set it as the active scene.
+        yield return Instance.StartCoroutine(LoadSceneRoutine("Level 1"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level 1"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
+        
+        LoadingScreenManager.Instance.DisableLoadingScreen();
+        InputManager.ActivateInput();
+
+        Debug.Log("Game Initialized");
+
+        yield break;
+    }
+
+    private static IEnumerator UnloadScenes()
+    {
+        yield return Instance.StartCoroutine(UnloadSceneRoutine("MainMenuScene"));
+        yield return Instance.StartCoroutine(UnloadSceneRoutine("Extended Level"));
+        yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 1"));
+    }
+    
     private static IEnumerator InitalizeHud()
     {
         InputManager.DeactivateInput();
-        // Load the hud scene.
         yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
-
         Debug.Log("HUD Initialized");
 
         yield break;

@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
     public void GoToGameBtn()
     {
         Debug.Log("Game is opening...");
-        LoadManager.Instance.StartCoroutine(LoadManager.GoToGame());
+        LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel1());
     }
 
     public void ExitBtn()
