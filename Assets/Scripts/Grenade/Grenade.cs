@@ -5,6 +5,7 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public int grenadeDamage = 10; // Set the damage amount in the Inspector
 
     void Start()
     {
@@ -14,11 +15,26 @@ public class Grenade : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
-        if (enemy != null)
+        // Check if the collided object has the PlayerHealth component
+        PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
         {
-            enemy.DealDamage();
-            Destroy(gameObject);
+            // If the collided object is the player, deal damage to the player
+            playerHealth.TakeDamage(grenadeDamage);
         }
+
+        // Check if the collided object has the EnemyHealth component
+        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            // If the collided object is an enemy, deal damage to the enemy
+            enemyHealth.TakeDamage(grenadeDamage);
+        }
+         // Destroy the grenade object after it collides with something
+        Destroy(gameObject);
     }
 }
+
+
+
+
