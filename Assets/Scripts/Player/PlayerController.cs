@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GrenadeShooter shooter;
+    private BulletShooter shooter;
 
     void Start()
     {
-        shooter = GetComponent<GrenadeShooter>();
+        shooter = GetComponent<BulletShooter>();
     }
 
     void Update()
