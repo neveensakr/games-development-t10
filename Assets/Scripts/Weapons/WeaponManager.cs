@@ -23,6 +23,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public GameObject[] Arms;
     [SerializeField] public GameObject[] Bullets;
     [SerializeField] public GameObject[] Rockets;
+    [SerializeField] public GameObject GrenadePrefab;
+    [SerializeField] public Sprite[] GrenadeSkins;
+    [SerializeField] private Transform GrenadeFirePoint;    
 
     private int _currentWeaponIndex;
     private PlayerHealth _playerHealth;
@@ -52,6 +55,7 @@ public class WeaponManager : MonoBehaviour
             else if (Input.GetMouseButtonDown(0) && ActiveWeapon is RocketLauncher) ActiveWeapon.Fire(ActiveRocket); 
             else if (Input.GetMouseButton(0) && ActiveWeapon is AssaultRifle) ActiveWeapon.Fire(ActiveBullet); 
             else if (Input.GetMouseButtonDown(0)) ActiveWeapon.Fire(ActiveBullet); 
+            else if (Input.GetMouseButtonDown(1)) ThrowGrenade();
             else if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchElement(Element.Fire);
             else if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchElement(Element.Lightning);
             else if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchElement(Element.Frost);
@@ -79,5 +83,13 @@ public class WeaponManager : MonoBehaviour
         ActiveWeapon.SwitchSkins(ActiveElement);
         ActiveBullet = Bullets[Array.IndexOf(Elements, ActiveElement)];
         ActiveRocket = Rockets[Array.IndexOf(Elements, ActiveElement)];
+    }
+
+    private void ThrowGrenade()
+    {
+        GameObject grenade = Instantiate(GrenadePrefab, 
+            GrenadeFirePoint.position, 
+            GrenadeFirePoint.rotation);
+        grenade.GetComponent<SpriteRenderer>().sprite = GrenadeSkins[Array.IndexOf(Elements, ActiveElement)];
     }
 }
