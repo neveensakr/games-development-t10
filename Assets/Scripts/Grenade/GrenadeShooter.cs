@@ -6,7 +6,7 @@ public class GrenadeShooter : MonoBehaviour
 {
     public GameObject grenade;
     public Transform firePoint;
-    public int grenadeDamage = 1; // Set the damage amount in the Inspector
+    public int grenadeDamage = 10; // Set the damage amount in the Inspector
 
     public void Fire()
     {

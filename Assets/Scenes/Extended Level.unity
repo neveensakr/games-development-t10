@@ -489,6 +489,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1874148497, guid: 8c7af29d4809c435586a4d18247b7f7b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013577878626330950, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013577878626330957, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: grenadeDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865493507654388669, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: detectionRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942309361370538068, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6942309361635757226, guid: 8c7af29d4809c435586a4d18247b7f7b,
         type: 3}
       propertyPath: m_RootOrder
@@ -548,6 +572,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942309361635757229, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942309363051200363, guid: 8c7af29d4809c435586a4d18247b7f7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7af29d4809c435586a4d18247b7f7b, type: 3}

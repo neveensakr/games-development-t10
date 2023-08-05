@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 30;
-    private int currentHealth;
+    [SerializeField] public float maxHealth = 3f; // The maximum health the enemy can have
+    private float currentHealth; // The current health of the enemy
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth; // Initialize current health to max health at the start
     }
 
     public void TakeDamage(int damage)
     {
-        // Reduce the current health of the enemy by the specified damage amount
-        currentHealth -= damage;
-        if (currentHealth <= 0)  // Check if the current health is less than or equal to 0
+        currentHealth -= damage; // Reduce current health by the damage amount
+        if (currentHealth <= 0)
         {
-            Die(); // If the enemy's health is depleted, call the Die method to handle death logic
+            Die();
         }
     }
 
@@ -27,5 +26,8 @@ public class EnemyHealth : MonoBehaviour
         // Perform any death animations/effects here
         Destroy(gameObject);
     }
+
+    // Other methods and code...
 }
+
 

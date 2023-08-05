@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenade: {fileID: 2981627479765994600, guid: 7432594231b7647a6a1e9aa6ece7e64a, type: 3}
   firePoint: {fileID: 56503095691478811}
-  grenadeDamage: 1
+  grenadeDamage: 10
 --- !u!114 &1103936693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healFraction: 0.01
-  timeToStartHealing: 5
-  timeBetweenHealing: 2
+  healFraction: 0.1
+  timeToStartHealing: 10
+  timeBetweenHealing: 5
 --- !u!1 &56503095691478812
 GameObject:
   m_ObjectHideFlags: 0

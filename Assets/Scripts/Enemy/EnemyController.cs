@@ -102,11 +102,14 @@ public class EnemyController : MonoBehaviour
         while (target)
         {
             GameObject bullet = Instantiate(grenade, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Grenade>().grenadeDamage = 1; // Set the damage amount if needed
+            bullet.GetComponent<Grenade>().grenadeDamage = 10; // Set the damage amount if needed
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;
     }
 }
+
+
+
 
 
