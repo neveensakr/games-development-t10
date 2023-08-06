@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         {
             // If the collided object is an enemy, deal damage to the enemy
             enemyHealth.TakeDamage(bulletDamage);
+            Debug.LogError("ENEMY DAMAGE");
         }
          // Destroy the grenade object after it collides with something
         Destroy(gameObject);

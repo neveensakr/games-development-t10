@@ -102,7 +102,7 @@ public class EnemyController : MonoBehaviour
         while (target)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<BulletShooter>().bulletDamage = 10; // Set the damage amount if needed
+            bullet.GetComponent<Bullet>().bulletDamage = 10; // Set the damage amount if needed
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;
