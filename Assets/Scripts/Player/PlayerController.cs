@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 {
     private BulletShooter shooter;
     private PlayerHealth playerHealth;
-    public int playerGrenadeDamage = 10; // Set the damage amount for player's grenade in the Inspector
+    public int playerBulletDamage = 10; // Set the damage amount for player's grenade in the Inspector
 
     private void Start()
     {
@@ -54,14 +54,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 // Set the grenade damage directly before firing
-                shooter.grenadeDamage = playerGrenadeDamage;
+                shooter.bulletDamage = playerBulletDamage;
                 shooter.Fire();
             }
         }
     }
 
     // Call this method when the player is hit by an enemy grenade
-    public void OnHitByEnemyGrenade()
+    public void OnHitByEnemyBullet()
     {
         playerHealth.StopHealing();
     }

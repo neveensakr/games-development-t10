@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   detectionRange: 2
-  grenade: {fileID: 2981627479765994600, guid: 7432594231b7647a6a1e9aa6ece7e64a, type: 3}
+  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 1874148498}
   fireRate: 2
 --- !u!58 &1013577878626330952
@@ -306,9 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e440509b7e2a4ac1a07c1d8877c3007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenade: {fileID: 2981627479765994600, guid: 7432594231b7647a6a1e9aa6ece7e64a, type: 3}
+  bullet: {fileID: 2981627479765994600, guid: 7432594231b7647a6a1e9aa6ece7e64a, type: 3}
   firePoint: {fileID: 1874148498}
-  grenadeDamage: 1
+  bulletDamage: 10
 --- !u!1 &6942309363051200363
 GameObject:
   m_ObjectHideFlags: 0

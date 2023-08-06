@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float detectionRange = 2f;
 
-    public GameObject grenade; // The bullet prefab
+    public GameObject bulletPrefab; // The bullet prefab
     public Transform firePoint; // The point from where bullets are fired
     public float fireRate = 2f; // Fire rate in seconds
 
@@ -101,8 +101,8 @@ public class EnemyController : MonoBehaviour
         isShooting = true;
         while (target)
         {
-            GameObject bullet = Instantiate(grenade, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Grenade>().grenadeDamage = 10; // Set the damage amount if needed
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<BulletShooter>().bulletDamage = 10; // Set the damage amount if needed
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;
