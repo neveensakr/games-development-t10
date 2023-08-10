@@ -11,6 +11,5 @@ public class DestroySelf : MonoBehaviour
     {
         // Destroy the GameObject to which this script is attached after the specified duration
         Destroy(gameObject, seconds);
-    }
-    
+    }    
 }

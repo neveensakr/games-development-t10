@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1137114099864967544, guid: 6045452560f1fca49bb63404fc4e9c8c, type: 3}
   firePoint: {fileID: 728514892661937325}
-  bulletDamage: 1
+  bulletDamage: 10
 --- !u!60 &3708306729233615206
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healFraction: 0.1
-  timeToStartHealing: 10
+  timeToStartHealing: 5
   timeBetweenHealing: 5
 --- !u!1 &728514892463697591
 GameObject:

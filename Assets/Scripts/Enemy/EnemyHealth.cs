@@ -26,8 +26,6 @@ public class EnemyHealth : MonoBehaviour
         // Perform any death animations/effects here
         Destroy(gameObject);
     }
-
-    // Other methods and code...
 }
 
 

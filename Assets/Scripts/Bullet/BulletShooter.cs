@@ -12,5 +12,5 @@ public class BulletShooter : MonoBehaviour
     {
         // Create a new grenade GameObject at the firePoint position and rotation
         GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation);
-    }
+    }  
 }

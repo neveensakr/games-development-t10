@@ -183,15 +183,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 694444879094676073, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+    - target: {fileID: 694444879094676074, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: fireRate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 694444879094676074, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: minDistanceToPlayer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 694444879094676078, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
