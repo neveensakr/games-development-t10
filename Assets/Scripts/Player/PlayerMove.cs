@@ -36,7 +36,8 @@ public class PlayerMove : MonoBehaviour
         if (InputManager.InputActivated)
         {
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            rb.velocity = movement * _movementSpeed;
+            if (movement.x == 0 && movement.y == 0) rb.velocity = new Vector2(0, 0);
+            else rb.velocity = movement * _movementSpeed;
         }
     }
 }

@@ -176,7 +176,6 @@ GameObject:
   - component: {fileID: 1013577878626330952}
   - component: {fileID: 1013577878626330951}
   - component: {fileID: 1013577878626330950}
-  - component: {fileID: 1013577878626330957}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -240,7 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  detectionRange: 2
+  shootingRange: 2
+  minDistanceToPlayer: 1.5
   bulletPrefab: {fileID: 1137114099864967544, guid: 6045452560f1fca49bb63404fc4e9c8c,
     type: 3}
   firePoint: {fileID: 1874148498}
@@ -295,21 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
---- !u!114 &1013577878626330957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6942309361635757229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e440509b7e2a4ac1a07c1d8877c3007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 2981627479765994600, guid: 7432594231b7647a6a1e9aa6ece7e64a, type: 3}
-  firePoint: {fileID: 1874148498}
-  bulletDamage: 10
 --- !u!1 &6942309363051200363
 GameObject:
   m_ObjectHideFlags: 0

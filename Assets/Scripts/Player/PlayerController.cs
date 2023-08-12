@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private BulletShooter shooter;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     private PlayerHealth playerHealth;
     public int playerBulletDamage = 10; // Set the damage amount for player's grenade in the Inspector
 
     private void Start()
     {
-        shooter = GetComponent<BulletShooter>();
         playerHealth = GetComponent<PlayerHealth>();
     }
 
@@ -21,8 +21,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 // Set the grenade damage directly before firing
-                shooter.bulletDamage = playerBulletDamage;
-                shooter.Fire();
+                Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
+                bullet.owner = Characters.Player;
+                bullet.bulletDamage = playerBulletDamage;
             }
         }
     }
