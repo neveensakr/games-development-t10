@@ -52,6 +52,3 @@ public class Bullet : MonoBehaviour
         if (!collider.isTrigger) Destroy(gameObject);
     }
 }
-
-
-

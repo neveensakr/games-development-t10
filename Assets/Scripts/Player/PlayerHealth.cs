@@ -35,8 +35,7 @@ public class PlayerHealth : MonoBehaviour
             StartHealing(); // Start healing if the player is still alive
         }
     }
-
-
+    
     private void Die()
     {
         // Perform any death animations/effects here

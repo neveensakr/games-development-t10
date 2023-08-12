@@ -21,5 +21,3 @@ public class PlayerHealthBar : MonoBehaviour
         healthSlider.value = currentHealth;
     }
 }
-
-
