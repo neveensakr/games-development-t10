@@ -1770,17 +1770,17 @@ PrefabInstance:
     - target: {fileID: 3311519808792390577, guid: b8375fd76fd91fe489b25ad377cbc0e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3311519808792390577, guid: b8375fd76fd91fe489b25ad377cbc0e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1239806749}
+      objectReference: {fileID: 1768042833}
     - target: {fileID: 3311519808792390577, guid: b8375fd76fd91fe489b25ad377cbc0e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: GoToGameBtn
       objectReference: {fileID: 0}
     - target: {fileID: 3311519808792390577, guid: b8375fd76fd91fe489b25ad377cbc0e9,
         type: 3}
