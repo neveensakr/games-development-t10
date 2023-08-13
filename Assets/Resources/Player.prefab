@@ -176,8 +176,8 @@ GameObject:
   - component: {fileID: 728514892024647958}
   - component: {fileID: 728514892024647959}
   - component: {fileID: 728514892024647952}
-  - component: {fileID: 728514892024647953}
   - component: {fileID: 3708306729233615206}
+  - component: {fileID: 6585291449861543977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -266,7 +266,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -298,20 +298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87643bd2e3d914118a5e36c428431c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &728514892024647953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728514892024647954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e440509b7e2a4ac1a07c1d8877c3007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1137114099864967544, guid: 6045452560f1fca49bb63404fc4e9c8c, type: 3}
-  from: {fileID: 728514892661937325}
+  bulletPrefab: {fileID: 1137114099864967544, guid: 6045452560f1fca49bb63404fc4e9c8c,
+    type: 3}
+  firePoint: {fileID: 728514892661937325}
+  playerBulletDamage: 1
 --- !u!60 &3708306729233615206
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -345,6 +335,22 @@ PolygonCollider2D:
       - {x: -1.9649997, y: -1.838572}
       - {x: 2.2389288, y: -1.8139294}
       - {x: 3.2721422, y: -0.47142792}
+--- !u!114 &6585291449861543977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728514892024647954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18773d76ca55042ebafbca131fb3b16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healFraction: 0.1
+  timeToStartHealing: 5
+  timeBetweenHealing: 5
 --- !u!1 &728514892463697591
 GameObject:
   m_ObjectHideFlags: 0

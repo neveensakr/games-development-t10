@@ -20,7 +20,7 @@ public class LoadManager : MonoBehaviour
         // Don't destroy them when switching scenes.
         Object.DontDestroyOnLoad(player);
         Object.DontDestroyOnLoad(camera);
-        
+        GameManager.Player = player;
         yield return Instance.StartCoroutine(LoadSceneRoutine("LoadingScene"));
 
         // Proceed depending on the current scene.
