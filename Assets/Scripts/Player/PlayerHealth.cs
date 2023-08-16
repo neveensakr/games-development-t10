@@ -24,15 +24,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage; // Reduce current health by the damage amount
-        if (currentHealth <= 0)
+        if (!GetComponent<PlayerAbilityManager>().abilityActive) // If Invulnerability Ability is active, no damage is taken
         {
-            Die();
-        }
-        else
-        {
-            lastDamageTime = Time.time; // Update the last damage time
-            StartHealing(); // Start healing if the player is still alive
+            currentHealth -= damage; // Reduce current health by the damage amount
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                lastDamageTime = Time.time; // Update the last damage time
+                StartHealing(); // Start healing if the player is still alive
+            }
         }
     }
     
