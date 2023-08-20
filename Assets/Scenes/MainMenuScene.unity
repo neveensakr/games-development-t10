@@ -489,9 +489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75610546b7acbe4d833c46c761f0be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _img: {fileID: 715928282}
-  _x: 0.01
-  _y: 0.01
+  image: {fileID: 715928282}
+  xAxis: 0.01
+  yAxis: 0.01
 --- !u!114 &715928282
 MonoBehaviour:
   m_ObjectHideFlags: 0
