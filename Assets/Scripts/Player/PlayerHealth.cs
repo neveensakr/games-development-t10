@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (!GetComponent<PlayerAbilityManager>().abilityActive) // If Invulnerability Ability is active, no damage is taken
+        if (!GetComponent<PlayerAbilityManager>().abilityActive && GetComponent<PlayerAbilityManager>().abilityType == AbilityType.Invulnerability) // If Invulnerability Ability is active, no damage is taken
         {
             currentHealth -= damage; // Reduce current health by the damage amount
             if (currentHealth <= 0)

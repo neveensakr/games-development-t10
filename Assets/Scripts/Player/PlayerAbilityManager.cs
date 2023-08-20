@@ -12,16 +12,10 @@ public class PlayerAbilityManager : MonoBehaviour
 {
     [SerializeField] public AbilityType abilityType = AbilityType.Invulnerability;
     [SerializeField] public float abilityActiveTime = 3f; // The amount of time the ability will be active
-    [SerializeField] public float abilityCooldownTime = 20f; // The amount of time the ability will be active
+    [SerializeField] public float abilityCooldownTime = 20f; // The amount of time the ability needs to be able to be activated again
     public bool abilityActive = false;
 
     public bool canUseAbility = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
