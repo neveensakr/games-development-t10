@@ -101,9 +101,3 @@ public class EnemyController : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-

@@ -10,4 +10,3 @@ public class PlayerStartingPosition : MonoBehaviour
         playerTransform.position = transform.position; // Set player's position to this GameObject's position
     }
 }
-
