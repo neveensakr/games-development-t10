@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] public float maxHealth = 3f; // The maximum health the enemy can have
+    public GameObject deathEffect; // The effect spawns when the enemy dies
     private float currentHealth; // The current health of the enemy
 
     private void Start()
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         // Perform any death animations/effects here
+        Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

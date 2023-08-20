@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject shotFlarePrefab;
     public Transform firePoint;
     private PlayerHealth playerHealth;
-    public int playerBulletDamage = 10; // Set the damage amount for player's grenade in the Inspector
+    public int playerBulletDamage = 10; // Set the damage amount for player's bullet in the Inspector
 
     private void Start()
     {
@@ -20,15 +21,16 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // Set the grenade damage directly before firing
+                // Set the bullet damage directly before firing
                 Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
                 bullet.owner = Characters.Player;
                 bullet.bulletDamage = playerBulletDamage;
+                Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
             }
         }
     }
 
-    // Call this method when the player is hit by an enemy grenade
+    // Call this method when the player is hit by an bullet grenade
     public void OnHitByEnemyBullet()
     {
         playerHealth.StopHealing();

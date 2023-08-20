@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float minDistanceToPlayer = 1.5f; // Minimum distance to maintain from the player
 
     public GameObject bulletPrefab; // The bullet prefab
+    public GameObject shotFlarePrefab; // The flare prefab
     public Transform firePoint; // The point from where bullets are fired
     public float fireRate = 2f; // Fire rate in seconds
 
@@ -73,6 +74,7 @@ public class EnemyController : MonoBehaviour
             Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
             bullet.owner = Characters.Enemy;
             bullet.bulletDamage = 10; // Set the damage amount if needed
+            Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;
