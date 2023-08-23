@@ -15,13 +15,16 @@ public class WeaponManager : MonoBehaviour
     public Element ActiveElement;
     public Weapon ActiveWeapon;
     public GameObject ActiveBullet;
+    /* New Change */
+    public GameObject ActiveRockets;
     
     [SerializeField] public GameObject[] Weapons;
-    
     [SerializeField] public Element[] Elements;
     [SerializeField] public Sprite[] Skins;
     [SerializeField] public GameObject[] Arms;
     [SerializeField] public GameObject[] Bullets;
+    /* New Change */
+    [SerializeField] public GameObject[] Rockets;
 
     private int _currentWeaponIndex;
     private PlayerHealth _playerHealth;
@@ -30,7 +33,9 @@ public class WeaponManager : MonoBehaviour
     {
         ActiveElement = Element.Fire;
         ActiveBullet = Bullets[Array.IndexOf(Elements, ActiveElement)];
-        
+        /* New Change */
+        ActiveRockets = Rockets[Array.IndexOf(Elements, ActiveElement)];
+
         foreach (GameObject weapon in Weapons) weapon.GetComponent<Weapon>().Deactivate();
         ActiveWeapon = Weapons[0].GetComponent<Weapon>();
         ActiveWeapon.Activate();
@@ -73,5 +78,7 @@ public class WeaponManager : MonoBehaviour
         Arms[nextIndex].SetActive(true);
         ActiveWeapon.SwitchSkins(ActiveElement);
         ActiveBullet = Bullets[Array.IndexOf(Elements, ActiveElement)];
+        /* New Change */
+        ActiveRockets = Rockets[Array.IndexOf(Elements, ActiveElement)];
     }
 }
