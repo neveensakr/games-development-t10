@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public void GoToGameBtn()
+    public void GoToLevelOne()
     {
         Debug.Log("Game is opening...");
         LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel1());
+    }
+    public void GoToLevelTwo()
+    {
+        Debug.Log("Game is opening...");
+        LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel2());
+    }
+    public void GoToLevelThree()
+    {
+        Debug.Log("Game is opening...");
+        LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel2());
     }
 
     public void ExitBtn()
