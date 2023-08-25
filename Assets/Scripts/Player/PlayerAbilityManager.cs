@@ -45,6 +45,5 @@ public class PlayerAbilityManager : MonoBehaviour
         yield return new WaitForSeconds(abilityCooldownTime);
 
         canUseAbility = true; // Set the canUseAbility flag to false when ability is out of cooldown and can be used again
-
     }
 }

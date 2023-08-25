@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
                 bullet.owner = Characters.Player;
                 bullet.bulletDamage = playerBulletDamage;
                 Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
+
+                 // Play the shoot sound
+                AudioManager.Instance.PlayerShootSound();
             }
         }
     }

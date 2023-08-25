@@ -35,6 +35,9 @@ public class PlayerHealth : MonoBehaviour
             {
                 lastDamageTime = Time.time; // Update the last damage time
                 StartHealing(); // Start healing if the player is still alive
+
+                // Play the hit sound
+                AudioManager.Instance.PlayerHitSound();
             }
         }
     }
@@ -43,6 +46,9 @@ public class PlayerHealth : MonoBehaviour
     {
         // Perform any death animations/effects here
         Destroy(gameObject);
+
+        // Play the death sound
+        AudioManager.Instance.PlayerDeathSound();
     }
 
     public float GetCurrentHealth()

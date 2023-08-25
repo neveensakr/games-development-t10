@@ -27,5 +27,8 @@ public class EnemyHealth : MonoBehaviour
         // Perform any death animations/effects here
         Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        // Play the defeat sound
+        AudioManager.Instance.EnemyDefeatSound();
     }
 }
