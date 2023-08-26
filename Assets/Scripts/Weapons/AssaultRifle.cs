@@ -24,9 +24,5 @@ public class AssaultRifle : Weapon
         Bullet bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Bullet>();
         bullet.owner = Characters.Player;
         bullet.bulletDamage = Damage;
-
-
     }
-
-    
 }

@@ -25,8 +25,7 @@ public class ShotGun : Weapon
             }
         }
     }
-
-
+    
     public override void Fire(GameObject bulletPrefab)
     {
         if(canFire)
@@ -56,6 +55,5 @@ public class ShotGun : Weapon
                 cooldownTime = 1f;
             }
         }
-       
     }
 }

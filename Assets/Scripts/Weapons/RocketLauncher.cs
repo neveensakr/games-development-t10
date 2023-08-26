@@ -27,11 +27,10 @@ public class RocketLauncher : Weapon
     {
         if (canFire)
         {
-            
             Debug.Log("Rocket Launcher Firing!");
-            Bullet bullet = Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Bullet>();
+            Rocket bullet = Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Rocket>();
             bullet.owner = Characters.Player;
-            bullet.bulletDamage = Damage;
+            bullet.rocketDamage = Damage;
             canFire = false;
             cooldownTime = 3f;
         }

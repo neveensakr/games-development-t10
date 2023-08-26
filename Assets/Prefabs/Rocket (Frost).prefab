@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -5331096815346029430}
   - component: {fileID: -7183831545030515054}
   - component: {fileID: 1739335934643183901}
-  - component: {fileID: 5804564342510638889}
   - component: {fileID: 3496703616200811117}
   m_Layer: 0
   m_Name: Rocket (Frost)
@@ -146,20 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 3
---- !u!114 &5804564342510638889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2392978399932802998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348c0fcb3447449e8a4b804225f6cc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: 0
-  bulletDamage: 20
 --- !u!114 &3496703616200811117
 MonoBehaviour:
   m_ObjectHideFlags: 0
