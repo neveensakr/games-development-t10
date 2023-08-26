@@ -108,8 +108,8 @@ public class LoadManager : MonoBehaviour
         yield return Instance.StartCoroutine(UnloadScenes());
 
         // Load the game scene and set it as the active scene.
-        yield return Instance.StartCoroutine(LoadSceneRoutine("Extended Level"));
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Extended Level"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("Level 1"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level 1"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
         
         LoadingScreenManager.Instance.DisableLoadingScreen();
@@ -192,7 +192,6 @@ public class LoadManager : MonoBehaviour
     private static IEnumerator UnloadScenes()
     {
         yield return Instance.StartCoroutine(UnloadSceneRoutine("MainMenuScene"));
-        yield return Instance.StartCoroutine(UnloadSceneRoutine("Extended Level"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 1"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 2"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 3"));

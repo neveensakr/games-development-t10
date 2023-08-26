@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     public void GoToLevelThree()
     {
         Debug.Log("Game is opening...");
-        LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel2());
+        LoadManager.Instance.StartCoroutine(LoadManager.GoToLevel3());
     }
 
     public void ExitBtn()
