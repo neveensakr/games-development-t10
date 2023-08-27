@@ -4,33 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public GameObject shotFlarePrefab;
-    public Transform firePoint;
     private PlayerHealth playerHealth;
-    public int playerBulletDamage = 10; // Set the damage amount for player's bullet in the Inspector
 
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
     }
 
-    private void Update()
-    {
-        if (InputManager.InputActivated && playerHealth.GetCurrentHealth() > 0f)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                // Set the bullet damage directly before firing
-                Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
-                bullet.owner = Characters.Player;
-                bullet.bulletDamage = playerBulletDamage;
-                Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
-            }
-        }
-    }
-
-    // Call this method when the player is hit by an bullet grenade
+    // Call this method when the player is hit by an enemy grenade
     public void OnHitByEnemyBullet()
     {
         playerHealth.StopHealing();
