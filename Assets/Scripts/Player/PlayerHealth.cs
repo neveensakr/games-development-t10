@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         if (!GetComponent<PlayerAbilityManager>().abilityActive && GetComponent<PlayerAbilityManager>().abilityType == AbilityType.Invulnerability) // If Invulnerability Ability is active, no damage is taken
         {
             currentHealth -= damage; // Reduce current health by the damage amount
+            AudioManager.Instance.PlayerHitSound(); // Play the hit sound
             if (currentHealth <= 0)
             {
                 Die();
@@ -41,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     
     private void Die()
     {
+        AudioManager.Instance.PlayerDeathSound(); // Play the death sound
         // Perform any death animations/effects here
         Destroy(gameObject);
     }

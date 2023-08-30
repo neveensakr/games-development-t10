@@ -31,6 +31,7 @@ public class RocketLauncher : Weapon
             Rocket bullet = Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Rocket>();
             bullet.owner = Characters.Player;
             bullet.rocketDamage = Damage;
+            AudioManager.Instance.PlayerShootSound(); // Play the shooting sound
             canFire = false;
             cooldownTime = 3f;
         }
