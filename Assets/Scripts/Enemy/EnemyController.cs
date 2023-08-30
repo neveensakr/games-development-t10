@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -39,19 +37,22 @@ public class EnemyController : MonoBehaviour
         {
             // Calculate the distance to the player
             float distance = Vector2.Distance(transform.position, target.position);
-            // Check if the enemy is outside the detection range
+
             if (distance > minDistanceToPlayer)
             {
                 moveDirection = (target.position - transform.position).normalized;
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-                rb.rotation = angle - 90f;
                 rb.velocity = moveDirection * moveSpeed; // Move towards the player
+
+                // Calculate the angle to rotate towards the player
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
+
+                rb.rotation = angle; // Rotate the enemy towards the player
             }
             else
             {
                 rb.velocity = Vector2.zero; // Stop moving if within the detection range
+                rb.angularVelocity = 0f; // Stop rotation if within the detection range
             }
-            
         }
         else
         {
@@ -79,12 +80,15 @@ public class EnemyController : MonoBehaviour
         }
         isShooting = false;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the collision is with the player
         PlayerController player = collision.GetComponent<PlayerController>();
-        if (player) target = player.transform; // Set the player as the target
+        if (player)
+        {
+            target = player.transform; // Set the player as the target
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
