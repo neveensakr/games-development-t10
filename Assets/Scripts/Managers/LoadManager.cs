@@ -17,9 +17,11 @@ public class LoadManager : MonoBehaviour
         // Create the camera and player.
         GameObject player = Instantiate(Resources.Load<GameObject>("Player"));
         GameObject camera = Instantiate(Resources.Load<GameObject>("Camera"));
+        GameObject audioManager = Instantiate(Resources.Load<GameObject>("AudioManager"));
         // Don't destroy them when switching scenes.
         Object.DontDestroyOnLoad(player);
         Object.DontDestroyOnLoad(camera);
+        Object.DontDestroyOnLoad(audioManager);
         GameManager.Player = player;
         yield return Instance.StartCoroutine(LoadSceneRoutine("LoadingScene"));
 
