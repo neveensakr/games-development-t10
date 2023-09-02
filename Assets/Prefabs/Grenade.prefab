@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2981627479765994602}
   - component: {fileID: 2981627479765994601}
   - component: {fileID: 9102663900186454185}
-  - component: {fileID: 2915289155474562028}
-  - component: {fileID: 1475788322769546587}
-  - component: {fileID: -7753222938877455741}
+  - component: {fileID: 8362467058837872033}
+  - component: {fileID: 6403965507819823038}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -74,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0faa8567b2fd426ab0924691a8fdaac, type: 3}
-  m_Color: {r: 0.14538093, g: 0.254717, b: 0.16100036, a: 1}
+  m_Sprite: {fileID: 21300000, guid: afb5a5dbdac1b21408a1f6f5a620e5cd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +97,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 3.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -106,20 +105,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2915289155474562028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2981627479765994600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348c0fcb3447449e8a4b804225f6cc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1475788322769546587
-BoxCollider2D:
+--- !u!58 &8362467058837872033
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,19 +119,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
-  m_EdgeRadius: 0
---- !u!114 &-7753222938877455741
+  m_Radius: 0.81
+--- !u!114 &6403965507819823038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +130,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2981627479765994600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50255832630b94c4a9c719af071fb47c, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b98800e724cf747975db1bacad8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 1
+  throwForce: 20
+  damageRadius: 3
