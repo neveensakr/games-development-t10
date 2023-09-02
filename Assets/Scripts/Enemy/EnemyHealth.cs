@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+public class DeathEvent : UnityEvent<GameObject> { }
 
 public class EnemyHealth : MonoBehaviour
 {
+    public DeathEvent OnDeath = new DeathEvent();
+    
     [SerializeField] public float maxHealth = 3f; // The maximum health the enemy can have
     public GameObject deathEffect; // The effect spawns when the enemy dies
     private float currentHealth; // The current health of the enemy
@@ -11,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth; // Initialize current health to max health at the start
+        OnDeath.AddListener(GameManager.Instance.CheckIfWon);
     }
 
     public void TakeDamage(int damage)
@@ -27,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         AudioManager.Instance.EnemyDefeatSound(); // Play the enemy defeat sound
         // Perform any death animations/effects here
         Instantiate(deathEffect, transform.position, transform.rotation);
+        OnDeath.Invoke(gameObject);
         Destroy(gameObject);
     }
 }
