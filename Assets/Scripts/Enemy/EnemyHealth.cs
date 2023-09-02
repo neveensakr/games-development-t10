@@ -12,12 +12,15 @@ public class EnemyHealth : MonoBehaviour
     public GameObject deathEffect; // The effect spawns when the enemy dies
     public GameObject hitEffect; // The effect spawns when the enemy has gotten hit
     private float currentHealth; // The current health of the enemy
+   
 
     private void Start()
     {
+      
         currentHealth = maxHealth; // Initialize current health to max health at the start
         OnDeath.AddListener(GameManager.Instance.CheckIfWon);
     }
+
 
     public void TakeDamage(int damage)
     {

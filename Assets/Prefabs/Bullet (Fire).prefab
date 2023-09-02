@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8903846073747521037}
   - component: {fileID: 7581075580496638357}
   - component: {fileID: 254603930611958983}
-  - component: {fileID: 5214223270233148343}
   - component: {fileID: 7987874463413136864}
   - component: {fileID: 1402063624692273050}
+  - component: {fileID: 3315105253748650752}
   m_Layer: 0
   m_Name: Bullet (Fire)
   m_TagString: Untagged
@@ -106,20 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5214223270233148343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137114099864967544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348c0fcb3447449e8a4b804225f6cc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: 0
-  bulletDamage: 1
 --- !u!61 &7987874463413136864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +145,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 1
+--- !u!114 &3315105253748650752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137114099864967544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95cd43a2270a4a846be192fc7663be71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 0
+  bulletDamage: 10

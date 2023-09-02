@@ -7,7 +7,8 @@ public enum Element
 {
     Frost, 
     Lightning,
-    Fire
+    Fire,
+    none
 }
 
 public class WeaponManager : MonoBehaviour

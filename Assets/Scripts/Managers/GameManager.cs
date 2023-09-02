@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static int CurrentLevel = 1;
     public static bool GamePaused = false;
     private int enemyCount;
+    public static GameObject Camera { get; set; }
 
     private void Awake()
     {

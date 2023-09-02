@@ -8,11 +8,13 @@ public enum Characters
     Enemy
 }
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
     public Characters owner;
     private Rigidbody2D rb;
     public int bulletDamage = 10; // Set the damage amount in the Inspector
+
+    public abstract void Damage(EnemyHealth enemyHealth);
 
     void Start()
     {
@@ -30,8 +32,8 @@ public class Bullet : MonoBehaviour
                 PlayerHealth playerHealth = collider.gameObject.GetComponent<PlayerHealth>();
                 if (playerHealth != null && !collider.isTrigger)
                 {
-                    // If the collided object is the player, deal damage to the player
-                    playerHealth.TakeDamage(bulletDamage);
+                        // If the collided object is the player, deal damage to the player
+                        playerHealth.TakeDamage(bulletDamage);      
                 }
                 break;
             }
@@ -42,8 +44,9 @@ public class Bullet : MonoBehaviour
                 EnemyHealth enemyHealth = collider.gameObject.GetComponent<EnemyHealth>();
                 if (enemyHealth != null && !collider.isTrigger)
                 {
-                    // If the collided object is an enemy, deal damage to the enemy
-                    enemyHealth.TakeDamage(bulletDamage);
+                        // If the collided object is an enemy, deal damage to the enemy
+                        enemyHealth.TakeDamage(bulletDamage);
+                        Damage(enemyHealth);
                 }
                 break;
             }
