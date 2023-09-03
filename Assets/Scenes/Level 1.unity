@@ -341,6 +341,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 694444879094676072, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -401,6 +409,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (Spike) (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
 --- !u!1001 &1398129512
@@ -410,6 +433,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 694444879094676072, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -608,6 +643,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (Spike)
       objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914022245400524050, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
 --- !u!1001 &2118430278
@@ -617,6 +672,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472433819, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 694444879094676072, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -676,6 +743,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (Spike) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157000636587813654, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914022245400524050, guid: 21ce4504e8f760c4d9b0edd960bca4b0,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ce4504e8f760c4d9b0edd960bca4b0, type: 3}

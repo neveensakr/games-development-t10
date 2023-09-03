@@ -159,3 +159,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 0
   bulletDamage: 10
+  explosionRadius: 5
+  fireDamage: 30

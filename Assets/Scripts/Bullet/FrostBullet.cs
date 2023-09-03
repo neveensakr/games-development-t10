@@ -6,7 +6,10 @@ public class FrostBullet : Bullet
 {
     public override void Damage(EnemyHealth enemyHealth)
     {
-        Debug.Log("Frost Bullet");
+        if (IncreaseElementBar(Element.Frost, enemyHealth))
+        {
+            Debug.Log("FROST DAMAGE");
+        }
     }
 
 }

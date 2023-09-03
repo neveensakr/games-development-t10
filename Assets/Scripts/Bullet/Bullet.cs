@@ -44,14 +44,41 @@ public abstract class Bullet : MonoBehaviour
                 EnemyHealth enemyHealth = collider.gameObject.GetComponent<EnemyHealth>();
                 if (enemyHealth != null && !collider.isTrigger)
                 {
-                        // If the collided object is an enemy, deal damage to the enemy
-                        enemyHealth.TakeDamage(bulletDamage);
-                        Damage(enemyHealth);
+                    // If the collided object is an enemy, deal damage to the enemy
+                    enemyHealth.TakeDamage(bulletDamage);
+                    Damage(enemyHealth);
                 }
                 break;
             }
         }
         // If we hit a solid object that is not the player or enemy, destroy the bullet
         if (!collider.isTrigger) Destroy(gameObject);
+    }
+
+    public bool IncreaseElementBar(Element element, EnemyHealth enemyHealth)
+    {
+        ElementHealthBar elementHealthBar = enemyHealth.GetComponent<ElementHealthBar>();
+        if (elementHealthBar.ActiveElement != element && elementHealthBar.ActiveElement != Element.none) return false;
+        
+        elementHealthBar.ChangeElement(element);
+        if ((elementHealthBar.elementTime + 2) >= elementHealthBar.maxElementTime + 2) return false;
+        elementHealthBar.elementTime += 2;
+        return true;
+    }
+
+    public void Explode(float explosionRadius, int damage)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.isTrigger) continue;
+            EnemyHealth enemiesHealth = collider.gameObject.GetComponent<EnemyHealth>();
+            if (enemiesHealth != null)
+            {
+                enemiesHealth.TakeDamage(damage);
+            }
+            
+            // Instantiate explosion effect
+        }
     }
 }

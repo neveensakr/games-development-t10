@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ElementHealthBar : MonoBehaviour
 {
     [SerializeField] public float maxElementTime = 10;
     [SerializeField] public Transform healthBarPosition;
-    public float elementTime;
-    public Element ActiveElement;
+    [SerializeField] public Image sliderFill;
+    [SerializeField] public Color[] sliderColors;
     [SerializeField] public Slider elementSlider;
+    [SerializeField] public float timeAtMax;
     
+    public float elementTime;
+    public bool AtPeakTime = false;
+    public Element ActiveElement;
     
-    Camera cam;
-
+    private bool elementDecreasing = false;
+    private Camera cam;
+    
     private void Start()
     {
         elementTime = 0;
@@ -25,15 +31,15 @@ public class ElementHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if (elementTime > 0)
+        elementSlider.value = elementTime;
+        if (elementTime > 0 && !elementDecreasing)
         {
-            Debug.Log("I am fricken here");
-            elementTime -= Time.deltaTime;
-            elementSlider.value = elementTime;
-            Debug.Log(elementSlider.value);
+            StartCoroutine(DecreaseHealth());
         }
-        Debug.Log(elementTime);
-
+        else if (ActiveElement != Element.none && elementTime <= 0)
+        {
+            ChangeElement(Element.none);
+        }
     }
 
     private void LateUpdate()
@@ -41,5 +47,44 @@ public class ElementHealthBar : MonoBehaviour
         Vector2 screenPos = cam.WorldToScreenPoint(healthBarPosition.position);
         elementSlider.transform.position = screenPos;
         elementSlider.transform.rotation = healthBarPosition.rotation;
+    }
+
+    public void ChangeElement(Element newElement)
+    {
+        ActiveElement = newElement;
+        switch (ActiveElement)
+        {
+            case Element.Fire:
+                sliderFill.color = sliderColors[0];
+                break;
+            case Element.Lightning:
+                sliderFill.color = sliderColors[1];
+                break;
+            case Element.Frost:
+                sliderFill.color = sliderColors[2];
+                break;
+            case Element.none:
+                sliderFill.color = sliderColors[3];
+                break;
+        }
+    }
+
+    private IEnumerator DecreaseHealth()
+    {
+        while (elementTime > 0)
+        {
+            if (elementTime >= maxElementTime)
+            {
+                AtPeakTime = true;
+                yield return new WaitForSeconds(timeAtMax);
+                AtPeakTime = false;
+            }
+            elementDecreasing = true;
+            elementTime--;
+            
+            yield return new WaitForSeconds(0.5f);
+        }
+        elementDecreasing = false;
+        yield break;
     }
 }
