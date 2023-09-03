@@ -78,6 +78,7 @@ public class ElementHealthBar : MonoBehaviour
                 AtPeakTime = true;
                 yield return new WaitForSeconds(timeAtMax);
                 AtPeakTime = false;
+                GetComponent<EnemyController>().ResetSpeed();
             }
             elementDecreasing = true;
             elementTime--;
@@ -86,5 +87,20 @@ public class ElementHealthBar : MonoBehaviour
         }
         elementDecreasing = false;
         yield break;
+    }
+    public void Explode(float explosionRadius, int damage)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.isTrigger) continue;
+            EnemyHealth enemiesHealth = collider.gameObject.GetComponent<EnemyHealth>();
+            if (enemiesHealth != null)
+            {
+                enemiesHealth.TakeDamage(damage);
+            }
+
+            // Instantiate explosion effect
+        }
     }
 }

@@ -65,20 +65,4 @@ public abstract class Bullet : MonoBehaviour
         elementHealthBar.elementTime += 2;
         return true;
     }
-
-    public void Explode(float explosionRadius, int damage)
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.isTrigger) continue;
-            EnemyHealth enemiesHealth = collider.gameObject.GetComponent<EnemyHealth>();
-            if (enemiesHealth != null)
-            {
-                enemiesHealth.TakeDamage(damage);
-            }
-            
-            // Instantiate explosion effect
-        }
-    }
 }

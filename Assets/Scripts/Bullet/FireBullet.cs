@@ -13,7 +13,7 @@ public class FireBullet : Bullet
         IncreaseElementBar(Element.Fire, enemyHealth);
         if (elementHealthBar.ActiveElement == Element.Fire && elementHealthBar.AtPeakTime)
         {
-            StartCoroutine(StartExplosion(elementHealthBar));
+            GameManager.Instance.StartCoroutine(StartExplosion(elementHealthBar));
         }
     }
 
@@ -21,8 +21,13 @@ public class FireBullet : Bullet
     {
         for (int i = 0; i < elementHealthBar.timeAtMax; i++)
         {
-            Explode(explosionRadius, fireDamage);
-            yield return new WaitForSeconds(1);
+            if (elementHealthBar != null) 
+            { 
+                elementHealthBar.Explode(explosionRadius, fireDamage);
+                yield return new WaitForSeconds(1);
+            }
+
+           
         }
         
         yield break;

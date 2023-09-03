@@ -14,7 +14,7 @@ public class LightningBullet : Bullet
         IncreaseElementBar(Element.Lightning, enemyHealth);
         if (elementHealthBar.ActiveElement == Element.Lightning && elementHealthBar.AtPeakTime)
         {
-            Explode(explosionRadius, lightningDamage);
+            elementHealthBar.Explode(explosionRadius, lightningDamage);
         }
     }
 }
