@@ -51,6 +51,9 @@ public class LoadManager : MonoBehaviour
             case "EndScreenScene":
                 Instance.StartCoroutine(InitalizeEndScreen());
                 break;
+            case "PauseMenuScene":
+                Instance.StartCoroutine(InitalizePauseMenu());
+                break;
             default:
                 Instance.StartCoroutine(GoToGame());
                 break;
@@ -138,6 +141,7 @@ public class LoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level 1"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("EndScreenScene"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("PauseMenuScene"));
         GameManager.Instance.SetupLevel(1);
         
         LoadingScreenManager.Instance.DisableLoadingScreen();
@@ -163,6 +167,7 @@ public class LoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level 2"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("EndScreenScene"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("PauseMenuScene"));
         GameManager.Instance.SetupLevel(2);
 
         LoadingScreenManager.Instance.DisableLoadingScreen();
@@ -188,6 +193,7 @@ public class LoadManager : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level 3"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("HudScene"));
         yield return Instance.StartCoroutine(LoadSceneRoutine("EndScreenScene"));
+        yield return Instance.StartCoroutine(LoadSceneRoutine("PauseMenuScene"));
         GameManager.Instance.SetupLevel(3);
 
         LoadingScreenManager.Instance.DisableLoadingScreen();
@@ -205,6 +211,7 @@ public class LoadManager : MonoBehaviour
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 2"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 3"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("EndScreenScene"));
+        yield return Instance.StartCoroutine(UnloadSceneRoutine("PauseMenuScene"));
     }
     
     private static IEnumerator InitalizeHud()
@@ -221,6 +228,15 @@ public class LoadManager : MonoBehaviour
         InputManager.DeactivateInput();
         yield return Instance.StartCoroutine(LoadSceneRoutine("EndScreenScene"));
         Debug.Log("EndScreen Initialized");
+
+        yield break;
+    } 
+    
+    private static IEnumerator InitalizePauseMenu()
+    {
+        InputManager.DeactivateInput();
+        yield return Instance.StartCoroutine(LoadSceneRoutine("PauseMenuScene"));
+        Debug.Log("PauseMenu Initialized");
 
         yield break;
     }

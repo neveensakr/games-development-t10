@@ -11,6 +11,7 @@ public class EndScreenManager : MonoBehaviour
     [SerializeField] private GameObject nextLevelBtn;
     [SerializeField] private TextMeshProUGUI resultTxt;
     public static EndScreenManager Instance;
+    public static bool IsActive;
 
     private void Awake()
     {
@@ -20,11 +21,13 @@ public class EndScreenManager : MonoBehaviour
     private void Start()
     {
         screen.SetActive(false);
+        IsActive = false;
     }
 
     public void Setup(bool won)
     {
         screen.SetActive(true);
+        IsActive = true;
         GameManager.Instance.DisableEnemies();
         InputManager.DeactivateInput();
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("EndScreenScene"));
