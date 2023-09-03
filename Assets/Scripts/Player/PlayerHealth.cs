@@ -17,9 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth; // Initialize current health to max health at the start
-        lastDamageTime = Time.time; // Initialize the last damage time
-        isHealing = false; // Initialize the isHealing flag to false
+        InitialiseHealth();
     }
 
     public void TakeDamage(float damage)
@@ -44,7 +42,10 @@ public class PlayerHealth : MonoBehaviour
     {
         AudioManager.Instance.PlayerDeathSound(); // Play the death sound
         // Perform any death animations/effects here
-        Destroy(gameObject);
+        Debug.Log("PLAYER DEAD");
+        EndScreenManager.Instance.Setup(false);
+        gameObject.SetActive(false);
+        InitialiseHealth();
     }
 
     public float GetCurrentHealth()
@@ -106,5 +107,12 @@ public class PlayerHealth : MonoBehaviour
 
         isHealing = false; // Set the isHealing flag to false when healing is complete
         healthIncreaseCoroutine = null;
+    }
+
+    private void InitialiseHealth()
+    {
+        currentHealth = maxHealth; // Initialize current health to max health at the start
+        lastDamageTime = Time.time; // Initialize the last damage time
+        isHealing = false; // Initialize the isHealing flag to false
     }
 }
