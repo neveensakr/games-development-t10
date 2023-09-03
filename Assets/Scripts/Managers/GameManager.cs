@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckIfWon(GameObject enemy)
     {
-        enemyCount--;
+        enemyCount = FindObjectsOfType<EnemyHealth>().Length - 1;
         Debug.Log("enemyCount" + enemyCount);
         if (enemyCount == 0)
         {
