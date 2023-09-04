@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bulletPrefab;
+    public GameObject flare;
+    public Transform firePoint;
     private PlayerHealth playerHealth;
 
     private void Start()
@@ -11,7 +14,7 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
     }
 
-    // Call this method when the player is hit by an enemy grenade
+    // Call this method when the player is hit by an bullet grenade
     public void OnHitByEnemyBullet()
     {
         playerHealth.StopHealing();

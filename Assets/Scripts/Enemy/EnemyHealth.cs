@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     
     [SerializeField] public float maxHealth = 3f; // The maximum health the enemy can have
     public GameObject deathEffect; // The effect spawns when the enemy dies
+    public GameObject hitEffect; // The effect spawns when the enemy has gotten hit
     private float currentHealth; // The current health of the enemy
 
     private void Start()
@@ -21,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // Reduce current health by the damage amount
+        Instantiate(hitEffect, transform.position, transform.rotation);
         if (currentHealth <= 0)
         {
             Die();
