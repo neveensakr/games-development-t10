@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float timeToStartHealing = 10f; // The time after taking damage to start healing
     [SerializeField] private float timeBetweenHealing = 2f; // The time between each health increase
 
+    public GameObject deathEffect; // The effect spawns when the player dies
+    public GameObject hitEffect; // The effect spawns when the player has gotten hit
+
     private float currentHealth; // The current health of the player
     private Coroutine healthIncreaseCoroutine; // Reference to the health increase coroutine
     private float lastDamageTime; // Variable to store the time of the last damage taken
@@ -26,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth -= damage; // Reduce current health by the damage amount
             AudioManager.Instance.PlayerHitSound(); // Play the hit sound
+            Instantiate(hitEffect, transform.position, transform.rotation);
             if (currentHealth <= 0)
             {
                 Die();
@@ -46,6 +50,8 @@ public class PlayerHealth : MonoBehaviour
         EndScreenManager.Instance.Setup(false);
         gameObject.SetActive(false);
         InitialiseHealth();
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
     public float GetCurrentHealth()
