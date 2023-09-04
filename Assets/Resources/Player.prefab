@@ -223,6 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87643bd2e3d914118a5e36c428431c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  flare: {fileID: 0}
+  firePoint: {fileID: 0}
 --- !u!60 &3708306729233615206
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -272,6 +275,10 @@ MonoBehaviour:
   healFraction: 0.0025
   timeToStartHealing: 5
   timeBetweenHealing: 0.0625
+  deathEffect: {fileID: 1629317759437974473, guid: 3d6fc22c9d11485418cfd7a74a8bd933,
+    type: 3}
+  hitEffect: {fileID: 5669779805143790846, guid: 045b41a812da96c4dbc960b59a4927a0,
+    type: 3}
 --- !u!114 &-605000268028392144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +294,8 @@ MonoBehaviour:
   abilityType: 0
   abilityActiveTime: 3
   abilityCooldownTime: 20
+  abilityTurnOnEffect: {fileID: 0}
+  abilityTurnOffEffect: {fileID: 0}
   abilityActive: 0
   canUseAbility: 1
 --- !u!114 &7461969848681924891

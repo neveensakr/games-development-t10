@@ -51,7 +51,6 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false);
         InitialiseHealth();
         Instantiate(deathEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
     }
 
     public float GetCurrentHealth()
