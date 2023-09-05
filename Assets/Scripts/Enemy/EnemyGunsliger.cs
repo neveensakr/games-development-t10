@@ -39,19 +39,22 @@ public class EnemyGunsliger : MonoBehaviour
         {
             // Calculate the distance to the player
             float distance = Vector2.Distance(transform.position, target.position);
-            // Check if the enemy is outside the detection range
+
             if (distance > minDistanceToPlayer)
             {
                 moveDirection = (target.position - transform.position).normalized;
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-                rb.rotation = angle - 90f;
                 rb.velocity = moveDirection * moveSpeed; // Move towards the player
+
+                // Calculate the angle to rotate towards the player
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
+
+                rb.rotation = angle; // Rotate the enemy towards the player
             }
             else
             {
                 rb.velocity = Vector2.zero; // Stop moving if within the detection range
+                rb.angularVelocity = 0f; // Stop rotation if within the detection range
             }
-
         }
         else
         {
@@ -75,7 +78,8 @@ public class EnemyGunsliger : MonoBehaviour
             bullet.owner = Characters.Enemy;
             bullet.bulletDamage = 10; // Set the damage amount if needed
             //Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
-            flare.GetComponent<SpriteRenderer>().enabled = true;
+            flare.GetComponent<Flare>().flareActive = true;
+            StartCoroutine(flare.GetComponent<Flare>().HideFlare());
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;

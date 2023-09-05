@@ -6,6 +6,7 @@ public class Flare : MonoBehaviour
 {
     public float hideFlareTime; // Fire rate in seconds
     private SpriteRenderer spriteRenderer;
+    public bool flareActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +17,36 @@ public class Flare : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spriteRenderer.enabled)
+        // if (spriteRenderer.enabled)
+        // {
+        //     StartCoroutine(HideFlare());
+        // }
+        if (flareActive)
         {
-            StartCoroutine(HideFlare());
+            spriteRenderer.enabled = true;
+        }
+        else
+        {
+            //StartCoroutine(HideFlare());
+            //spriteRenderer.enabled = false;
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (!flareActive)
+        {
+            spriteRenderer.enabled = false;
         }
     }
 
     // Coroutine to handle shooting
-    private IEnumerator HideFlare()
+    public IEnumerator HideFlare()
     {
+        // flareActive = true;
         yield return new WaitForSeconds(hideFlareTime);
-        spriteRenderer.enabled = false;
+        flareActive = false;
+        //spriteRenderer.enabled = false;
+        //StopCoroutine(FlareManager());
     }
 }

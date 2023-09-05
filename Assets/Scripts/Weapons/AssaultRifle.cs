@@ -14,11 +14,19 @@ public class AssaultRifle : Weapon
     {
         while (IsActive && Time.time > nextFireTime)
         {
+            
             Bullet bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Bullet>();
             bullet.owner = Characters.Player;
             bullet.bulletDamage = Damage;
             AudioManager.Instance.PlayerShootSound(); // Play the shooting sound
             nextFireTime = Time.time + fireRate;
+            for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+                this.gameObject.transform.GetChild(i).GetComponent<Flare>().flareActive = true;
+            }
+            
+        }
+        for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+            StartCoroutine(this.gameObject.transform.GetChild(i).GetComponent<Flare>().HideFlare());
         }
     }
 }
