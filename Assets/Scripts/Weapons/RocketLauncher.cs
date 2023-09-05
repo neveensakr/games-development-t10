@@ -28,6 +28,10 @@ public class RocketLauncher : Weapon
         if (canFire)
         {
             Debug.Log("Rocket Launcher Firing!");
+            for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+                this.gameObject.transform.GetChild(i).GetComponent<Flare>().flareActive = true;
+                StartCoroutine(this.gameObject.transform.GetChild(i).GetComponent<Flare>().HideFlare());
+            }
             Rocket bullet = Instantiate(rocketPrefab, FirePoint.position, FirePoint.rotation).GetComponent<Rocket>();
             bullet.owner = Characters.Player;
             bullet.rocketDamage = Damage;

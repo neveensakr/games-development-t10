@@ -30,6 +30,10 @@ public class ShotGun : Weapon
     {
         if(canFire)
         {
+            for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+                this.gameObject.transform.GetChild(i).GetComponent<Flare>().flareActive = true;
+                StartCoroutine(this.gameObject.transform.GetChild(i).GetComponent<Flare>().HideFlare());
+            }
             for (int i = 0; i < numBullets; i++)
             {
                 Debug.Log("Shotgun Firing!");

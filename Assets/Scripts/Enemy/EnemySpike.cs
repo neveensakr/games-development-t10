@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemySpike : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float minDistanceToPlayer = 1.5f; // Minimum distance to maintain from the player
@@ -72,11 +72,12 @@ public class EnemyController : MonoBehaviour
         isShooting = true;
         while (target)
         {
-            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
-            bullet.owner = Characters.Enemy;
-            bullet.bulletDamage = 10; // Set the damage amount if needed
+            Grenade grenade = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Grenade>();
+            grenade.owner = Characters.Enemy;
+            grenade.grenadeDamage = 10; // Set the damage amount if needed
             //Flare flare = Instantiate(shotFlarePrefab, firePoint.position, firePoint.rotation).GetComponent<Flare>();
-            flare.GetComponent<SpriteRenderer>().enabled = true;
+            flare.GetComponent<Flare>().flareActive = true;
+            StartCoroutine(flare.GetComponent<Flare>().HideFlare());
             yield return new WaitForSeconds(1f / fireRate);
         }
         isShooting = false;

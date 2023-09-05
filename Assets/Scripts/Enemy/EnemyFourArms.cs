@@ -50,14 +50,18 @@ public class EnemyFourArms : MonoBehaviour
             if (distance > minDistanceToPlayer)
             {
                 moveDirection = (target.position - transform.position).normalized;
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-                rb.rotation = angle - 90f;
                 rb.velocity = moveDirection * moveSpeed; // Move towards the player
+
+                // Calculate the angle to rotate towards the player
+                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
+
+                rb.rotation = angle; // Rotate the enemy towards the player
                 canPunch = false;
             }
             else
             {
                 rb.velocity = Vector2.zero; // Stop moving if within the detection range
+                rb.angularVelocity = 0f; // Stop rotation if within the detection range
                 canPunch = true;
             }
             

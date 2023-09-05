@@ -8,6 +8,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] public int Damage;
     [SerializeField] public Element[] Elements;
     [SerializeField] public Sprite[] Skins;
+    [SerializeField] public Sprite[] FlareSprites;
     
     public bool IsActive;
     
@@ -30,5 +31,8 @@ public abstract class Weapon : MonoBehaviour
         Debug.Log("Switching Skins!");
         Sprite newSkin = Skins[Array.IndexOf(Elements, element)];
         GetComponent<SpriteRenderer>().sprite = newSkin;
+        for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+            this.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = FlareSprites[Array.IndexOf(Elements, element)];
+        }
     }
 }

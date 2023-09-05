@@ -25,6 +25,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public GameObject[] Rockets;
     [SerializeField] public GameObject GrenadePrefab;
     [SerializeField] public Sprite[] GrenadeSkins;
+    [SerializeField] public GameObject[] GrenadeExplosion;
     [SerializeField] private Transform GrenadeFirePoint;    
 
     private int _currentWeaponIndex;
@@ -52,9 +53,18 @@ public class WeaponManager : MonoBehaviour
         if (InputManager.InputActivated && _playerHealth.GetCurrentHealth() > 0f)
         {
             if (Input.GetKeyDown(KeyCode.Q) || Input.mouseScrollDelta.y > 0.8f) SwitchWeapons();
-            else if (Input.GetMouseButtonDown(0) && ActiveWeapon is RocketLauncher) ActiveWeapon.Fire(ActiveRocket); 
-            else if (Input.GetMouseButton(0) && ActiveWeapon is AssaultRifle) ActiveWeapon.Fire(ActiveBullet); 
-            else if (Input.GetMouseButtonDown(0)) ActiveWeapon.Fire(ActiveBullet); 
+            else if (Input.GetMouseButtonDown(0) && ActiveWeapon is RocketLauncher) {
+                ActiveWeapon.Fire(ActiveRocket);
+            }
+            else if (Input.GetMouseButton(0) && ActiveWeapon is AssaultRifle) {
+                ActiveWeapon.Fire(ActiveBullet);
+                // for (var i = 1; i < this.gameObject.transform.childCount; i++) {
+                //     ActiveWeapon.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = true;
+                // }
+            } 
+            else if (Input.GetMouseButtonDown(0)) {
+                ActiveWeapon.Fire(ActiveBullet);
+            }
             else if (Input.GetMouseButtonDown(1)) ThrowGrenade();
             else if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchElement(Element.Fire);
             else if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchElement(Element.Lightning);
@@ -91,5 +101,6 @@ public class WeaponManager : MonoBehaviour
             GrenadeFirePoint.position, 
             GrenadeFirePoint.rotation);
         grenade.GetComponent<SpriteRenderer>().sprite = GrenadeSkins[Array.IndexOf(Elements, ActiveElement)];
+        grenade.GetComponent<Grenade>().explosionEffect = GrenadeExplosion[Array.IndexOf(Elements, ActiveElement)];
     }
 }
