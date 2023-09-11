@@ -14,12 +14,22 @@ public class FrostBullet : Bullet
         {
             Debug.Log("FROST DAMAGE");
 
-            /*enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);*/
+            enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);
             
         }
         if (elementHealthBar.ActiveElement == Element.Frost && elementHealthBar.AtPeakTime)
         {
-            /*enemyHealth.GetComponent<EnemyController>().moveSpeed = 0f;*/
+            GameObject frostEffect = enemyHealth.transform.GetChild(3).gameObject;
+            frostEffect.GetComponent<SpriteRenderer>().enabled = true;
+            if (enemyHealth.GetComponent<EnemyController>()) {
+                enemyHealth.GetComponent<EnemyController>().moveSpeed = 0f;
+                frostEffect.GetComponent<Animator>().Play("Effect (Frost) (Gunslinger)", -1, 0f);
+                frostEffect.GetComponent<Animator>().Play("Effect (Frost) (Spike)", -1, 0f);
+            }
+            else {
+                enemyHealth.GetComponent<EnemyFourArms>().moveSpeed = 0f;
+                frostEffect.GetComponent<Animator>().Play("Effect (Frost) (FourArms)", -1, 0f);
+            }
         }
     }
 

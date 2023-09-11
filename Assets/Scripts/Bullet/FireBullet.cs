@@ -13,21 +13,22 @@ public class FireBullet : Bullet
         IncreaseElementBar(Element.Fire, enemyHealth);
         if (elementHealthBar.ActiveElement == Element.Fire && elementHealthBar.AtPeakTime)
         {
-            GameManager.Instance.StartCoroutine(StartExplosion(elementHealthBar));
+            GameManager.Instance.StartCoroutine(StartExplosion(elementHealthBar, enemyHealth));
         }
     }
 
-    private IEnumerator StartExplosion(ElementHealthBar elementHealthBar)
+    private IEnumerator StartExplosion(ElementHealthBar elementHealthBar, EnemyHealth enemyHealth)
     {
+        GameObject fireEffect = enemyHealth.transform.GetChild(2).gameObject;
         for (int i = 0; i < elementHealthBar.timeAtMax; i++)
         {
+            fireEffect.GetComponent<SpriteRenderer>().enabled = true;
             if (elementHealthBar != null) 
             { 
                 elementHealthBar.Explode(explosionRadius, fireDamage);
                 yield return new WaitForSeconds(1);
             }
-
-           
+            fireEffect.GetComponent<SpriteRenderer>().enabled = false;
         }
         
         yield break;

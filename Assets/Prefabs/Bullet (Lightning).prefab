@@ -120,6 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 0
   bulletDamage: 10
+  explosionRadius: 4
+  lightningDamage: 30
+  lightningEffect: {fileID: 8806388677889784663, guid: 24f3707c827eaa9489786ee5dbe77ed7,
+    type: 3}
 --- !u!61 &7987874463413136864
 BoxCollider2D:
   m_ObjectHideFlags: 0

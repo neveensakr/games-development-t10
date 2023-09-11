@@ -1,42 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFourArms : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     [SerializeField] public float moveSpeed = 5f;
-    [SerializeField] private float minDistanceToPlayer = 1f; // Minimum distance to maintain from the player
-
-    
+    [SerializeField] private float minDistanceToPlayer = 5f; // Minimum distance to maintain from the player
+    private float initialSpeed;
+    public GameObject bulletPrefab; // The bullet prefab
+    public GameObject flare; // The flare 
+    public Transform firePoint; // The point from where bullets are fired
+    public float fireRate = 2f; // Fire rate in seconds
 
     private Transform target;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
     private EnemyHealth enemyHealth;
-    private bool canPunch = false;
-    private Animator animator;
+    private bool isShooting = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialSpeed = moveSpeed;
         enemyHealth = GetComponent<EnemyHealth>(); // Assign the EnemyHealth component
-        animator = GetComponent<Animator>();
-        animator.speed = 0;
-        ToggleDamageForHands(false);
     }
 
     private void Update()
     {
-        if (canPunch)
+        if (target && !isShooting)
         {
-            animator.speed = 1;
-            ToggleDamageForHands(true);
-        }
-        else
-        {
-            animator.Play("Enemy (FourArms)", -1, 0f);
-            animator.speed = 0;
-            ToggleDamageForHands(false);
+            StartCoroutine(Shoot());
         }
     }
 
@@ -46,7 +40,7 @@ public class EnemyFourArms : MonoBehaviour
         {
             // Calculate the distance to the player
             float distance = Vector2.Distance(transform.position, target.position);
-            // Check if the enemy is outside the detection range
+
             if (distance > minDistanceToPlayer)
             {
                 moveDirection = (target.position - transform.position).normalized;
@@ -56,20 +50,16 @@ public class EnemyFourArms : MonoBehaviour
                 float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
 
                 rb.rotation = angle; // Rotate the enemy towards the player
-                canPunch = false;
             }
             else
             {
                 rb.velocity = Vector2.zero; // Stop moving if within the detection range
                 rb.angularVelocity = 0f; // Stop rotation if within the detection range
-                canPunch = true;
             }
-            
         }
         else
         {
             rb.velocity = Vector2.zero; // Stop moving if there is no target
-            canPunch = false;
         }
     }
 
@@ -79,14 +69,31 @@ public class EnemyFourArms : MonoBehaviour
         enemyHealth.TakeDamage(damage);
     }
 
-    // Call this method when the enemy to toggle if damage is going to be dealt
-    public void ToggleDamageForHands(bool canDamage)
+    // Coroutine to handle shooting
+    private IEnumerator Shoot()
     {
-        for (var i = 0; i < 4; i++)
+        isShooting = true;
+        while (target)
         {
-            BoxCollider2D child = this.gameObject.transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>();
-            child.enabled = canDamage;
+            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
+            if (bullet) {
+                bullet.owner = Characters.Enemy;
+                bullet.bulletDamage = 10; // Set the damage amount if needed
+                flare.GetComponent<Flare>().flareActive = true;
+                StartCoroutine(flare.GetComponent<Flare>().HideFlare());
+                yield return new WaitForSeconds(1f / fireRate);
+            }
+            else {
+                Grenade grenade = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Grenade>();
+                grenade.owner = Characters.Enemy;
+                grenade.grenadeDamage = 10; // Set the damage amount if needed
+                flare.GetComponent<Flare>().flareActive = true;
+                StartCoroutine(flare.GetComponent<Flare>().HideFlare());
+                yield return new WaitForSeconds(1f / fireRate);
+            }
+            
         }
+        isShooting = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,7 +109,20 @@ public class EnemyFourArms : MonoBehaviour
         if (player)
         {
             target = null;
-            //canPunch = false; // Reset the punching flag
+            isShooting = false; // Reset the shooting flag
         }
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = initialSpeed;
+    }
+    public void DecreaseSpeed(float amount)
+    {
+        if(moveSpeed > 0)
+        {
+            moveSpeed -= amount;
+        } 
+        
     }
 }

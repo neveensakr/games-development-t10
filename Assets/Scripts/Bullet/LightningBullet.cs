@@ -7,6 +7,7 @@ public class LightningBullet : Bullet
 {
     [SerializeField] private float explosionRadius = 4f;
     [SerializeField] private int lightningDamage = 30;
+    public GameObject lightningEffect; // The lightning prefab
 
     public override void Damage(EnemyHealth enemyHealth)
     {
@@ -15,6 +16,7 @@ public class LightningBullet : Bullet
         if (elementHealthBar.ActiveElement == Element.Lightning && elementHealthBar.AtPeakTime)
         {
             elementHealthBar.Explode(explosionRadius, lightningDamage);
+            Instantiate(lightningEffect, transform.position, transform.rotation);
         }
     }
 }
