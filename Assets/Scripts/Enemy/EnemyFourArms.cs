@@ -11,7 +11,7 @@ public class EnemyFourArms : MonoBehaviour
     private Vector2 moveDirection;
     private Rigidbody2D rb;
     private EnemyHealth enemyHealth;
-    private bool canPunch = false;
+    public bool canPunch = false;
     private Animator animator;
     private float initialSpeed;
 

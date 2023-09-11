@@ -27,7 +27,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public GameObject GrenadePrefab;
     [SerializeField] public Sprite[] GrenadeSkins;
     [SerializeField] public GameObject[] GrenadeExplosion;
-    [SerializeField] private Transform GrenadeFirePoint;    
+    [SerializeField] private Transform GrenadeFirePoint;
+    [SerializeField] public GameObject[] HitEffects;
 
     private int _currentWeaponIndex;
     private PlayerHealth _playerHealth;
@@ -94,6 +95,8 @@ public class WeaponManager : MonoBehaviour
         ActiveWeapon.SwitchSkins(ActiveElement);
         ActiveBullet = Bullets[Array.IndexOf(Elements, ActiveElement)];
         ActiveRocket = Rockets[Array.IndexOf(Elements, ActiveElement)];
+        GetComponent<PlayerHealth>().deathEffect = GrenadeExplosion[Array.IndexOf(Elements, ActiveElement)];
+        GetComponent<PlayerHealth>().hitEffect = HitEffects[Array.IndexOf(Elements, ActiveElement)];
     }
 
     private void ThrowGrenade()

@@ -14,7 +14,12 @@ public class FrostBullet : Bullet
         {
             Debug.Log("FROST DAMAGE");
 
-            enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);
+            if (enemyHealth.GetComponent<EnemyController>()) {
+                enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);
+            }
+            else if (enemyHealth.GetComponent<EnemyFourArms>()) {
+                enemyHealth.GetComponent<EnemyFourArms>().DecreaseSpeed(amount);
+            }
             
         }
         if (elementHealthBar.ActiveElement == Element.Frost && elementHealthBar.AtPeakTime)
@@ -30,6 +35,7 @@ public class FrostBullet : Bullet
             }
             else if (enemyHealth.GetComponent<EnemyFourArms>()) {
                 enemyHealth.GetComponent<EnemyFourArms>().moveSpeed = 0f;
+                enemyHealth.GetComponent<EnemyFourArms>().canPunch = false;
                 frostEffect.GetComponent<Animator>().Play("Effect (Frost) (FourArms)", -1, 0f);
             }
             

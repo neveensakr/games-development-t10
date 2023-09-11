@@ -349,6 +349,10 @@ MonoBehaviour:
   - {fileID: 1693476886426892546, guid: c5b7e8f8dae462545ad5a32918597a0b, type: 3}
   - {fileID: 4063496875138322292, guid: c2f7ac4ff64c51a4b9e273468709881c, type: 3}
   GrenadeFirePoint: {fileID: 5890257798698318043}
+  HitEffects:
+  - {fileID: 5669779805143790846, guid: 045b41a812da96c4dbc960b59a4927a0, type: 3}
+  - {fileID: 1735969190380329611, guid: 84dccbdf1ca9c2d4098de9b41a0cc17b, type: 3}
+  - {fileID: 2249382557678142739, guid: 5f8926340f9aae1448f33100c39df630, type: 3}
 --- !u!1 &728514892463697591
 GameObject:
   m_ObjectHideFlags: 0

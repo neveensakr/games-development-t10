@@ -79,9 +79,17 @@ public class ElementHealthBar : MonoBehaviour
                 yield return new WaitForSeconds(timeAtMax);
                 AtPeakTime = false;
                 elementTime = 0;
-                GetComponent<EnemyController>().ResetSpeed();
-                GetComponent<EnemyFourArms>().ResetSpeed();
-                GetComponent<EnemyController>().isShooting = true;
+                if (GetComponent<EnemyController>()) {
+                    GetComponent<EnemyController>().ResetSpeed();
+                    GetComponent<EnemyController>().isShooting = true;
+                }
+                else {
+                    GetComponent<EnemyFourArms>().ResetSpeed();
+                    GetComponent<EnemyFourArms>().canPunch = true;
+                }
+                
+                GameObject frostEffect = this.gameObject.transform.GetChild(3).gameObject;
+                frostEffect.GetComponent<SpriteRenderer>().enabled = false;
             }
             elementDecreasing = true;
             elementTime--;
