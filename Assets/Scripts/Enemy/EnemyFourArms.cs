@@ -82,10 +82,12 @@ public class EnemyFourArms : MonoBehaviour
     // Call this method when the enemy to toggle if damage is going to be dealt
     public void ToggleDamageForHands(bool canDamage)
     {
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < this.gameObject.transform.childCount; i++)
         {
             BoxCollider2D child = this.gameObject.transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>();
-            child.enabled = canDamage;
+            if (child) {
+                child.enabled = canDamage;
+            }
         }
     }
 
