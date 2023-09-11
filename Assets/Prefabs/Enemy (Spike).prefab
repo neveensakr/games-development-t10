@@ -377,13 +377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  minDistanceToPlayer: 3.5
+  minDistanceToPlayer: 1.5
   bulletPrefab: {fileID: 4996122221494064492, guid: d1798b709af1db14fa5db802db5efa61,
     type: 3}
   shotFlarePrefab: {fileID: 7586435399880887104, guid: 910f000e5b586d544b63afc5a852efde,
     type: 3}
   firePoint: {fileID: 5587988929015476016}
-  fireRate: 1
+  fireRate: 2
 --- !u!58 &694444879094676073
 CircleCollider2D:
   m_ObjectHideFlags: 0
