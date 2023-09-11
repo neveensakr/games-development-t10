@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     private Vector2 moveDirection;
     private Rigidbody2D rb;
     private EnemyHealth enemyHealth;
-    private bool isShooting = false;
+    public bool isShooting = false;
 
     private void Start()
     {

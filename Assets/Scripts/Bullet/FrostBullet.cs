@@ -19,18 +19,22 @@ public class FrostBullet : Bullet
         }
         if (elementHealthBar.ActiveElement == Element.Frost && elementHealthBar.AtPeakTime)
         {
+            
             GameObject frostEffect = enemyHealth.transform.GetChild(3).gameObject;
             frostEffect.GetComponent<SpriteRenderer>().enabled = true;
             if (enemyHealth.GetComponent<EnemyController>()) {
                 enemyHealth.GetComponent<EnemyController>().moveSpeed = 0f;
+                enemyHealth.GetComponent<EnemyController>().isShooting = false;
                 frostEffect.GetComponent<Animator>().Play("Effect (Frost) (Gunslinger)", -1, 0f);
                 frostEffect.GetComponent<Animator>().Play("Effect (Frost) (Spike)", -1, 0f);
             }
-            else {
+            else if (enemyHealth.GetComponent<EnemyFourArms>()) {
                 enemyHealth.GetComponent<EnemyFourArms>().moveSpeed = 0f;
                 frostEffect.GetComponent<Animator>().Play("Effect (Frost) (FourArms)", -1, 0f);
             }
+            
         }
+        
     }
 
 }

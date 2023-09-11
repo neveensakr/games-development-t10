@@ -78,7 +78,10 @@ public class ElementHealthBar : MonoBehaviour
                 AtPeakTime = true;
                 yield return new WaitForSeconds(timeAtMax);
                 AtPeakTime = false;
-                /*GetComponent<EnemyController>().ResetSpeed();*/
+                elementTime = 0;
+                GetComponent<EnemyController>().ResetSpeed();
+                GetComponent<EnemyFourArms>().ResetSpeed();
+                GetComponent<EnemyController>().isShooting = true;
             }
             elementDecreasing = true;
             elementTime--;

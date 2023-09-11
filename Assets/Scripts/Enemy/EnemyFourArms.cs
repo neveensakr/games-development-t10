@@ -7,18 +7,18 @@ public class EnemyFourArms : MonoBehaviour
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float minDistanceToPlayer = 1f; // Minimum distance to maintain from the player
 
-    
-
     private Transform target;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
     private EnemyHealth enemyHealth;
     private bool canPunch = false;
     private Animator animator;
+    private float initialSpeed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialSpeed = moveSpeed;
         enemyHealth = GetComponent<EnemyHealth>(); // Assign the EnemyHealth component
         animator = GetComponent<Animator>();
         animator.speed = 0;
@@ -106,5 +106,17 @@ public class EnemyFourArms : MonoBehaviour
             target = null;
             //canPunch = false; // Reset the punching flag
         }
+    }
+    public void ResetSpeed()
+    {
+        moveSpeed = initialSpeed;
+    }
+    public void DecreaseSpeed(float amount)
+    {
+        if (moveSpeed > 0)
+        {
+            moveSpeed -= amount;
+        }
+
     }
 }
