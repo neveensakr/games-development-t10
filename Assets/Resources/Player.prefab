@@ -294,8 +294,10 @@ MonoBehaviour:
   abilityType: 0
   abilityActiveTime: 3
   abilityCooldownTime: 20
-  abilityTurnOnEffect: {fileID: 0}
-  abilityTurnOffEffect: {fileID: 0}
+  abilityTurnOnEffect: {fileID: 7514097207750563832, guid: 537456bddfdb227439211d01e9a40302,
+    type: 3}
+  abilityTurnOffEffect: {fileID: 5832075553090788941, guid: 7b04d2c8f03be8841acd67b0e690e192,
+    type: 3}
   abilityActive: 0
   canUseAbility: 1
 --- !u!114 &7461969848681924891
@@ -523,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideFlareTime: 0.1
+  flareActive: 0
 --- !u!1 &1855030782433131050
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideFlareTime: 0.1
+  flareActive: 0
 --- !u!1 &3436940071099204829
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideFlareTime: 0.1
+  flareActive: 0
 --- !u!1 &3548476304490397142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideFlareTime: 0.1
+  flareActive: 0
 --- !u!1 &6113646502516585816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideFlareTime: 0.1
+  flareActive: 0
 --- !u!1 &6813652171690214716
 GameObject:
   m_ObjectHideFlags: 0

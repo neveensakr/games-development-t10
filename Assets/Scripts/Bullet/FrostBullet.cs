@@ -14,12 +14,12 @@ public class FrostBullet : Bullet
         {
             Debug.Log("FROST DAMAGE");
 
-            enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);
+            /*enemyHealth.GetComponent<EnemyController>().DecreaseSpeed(amount);*/
             
         }
         if (elementHealthBar.ActiveElement == Element.Frost && elementHealthBar.AtPeakTime)
         {
-            enemyHealth.GetComponent<EnemyController>().moveSpeed = 0f;
+            /*enemyHealth.GetComponent<EnemyController>().moveSpeed = 0f;*/
         }
     }
 

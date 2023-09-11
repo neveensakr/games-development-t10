@@ -137,3 +137,5 @@ MonoBehaviour:
   damageRadius: 3
   grenadeDamage: 10
   owner: 0
+  explosionEffect: {fileID: 1629317759437974473, guid: 3d6fc22c9d11485418cfd7a74a8bd933,
+    type: 3}

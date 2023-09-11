@@ -378,10 +378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   minDistanceToPlayer: 1.5
-  bulletPrefab: {fileID: 4996122221494064492, guid: d1798b709af1db14fa5db802db5efa61,
+  bulletPrefab: {fileID: 173167966008618892, guid: 8e3dbbad161c5304dad9135571aedabd,
     type: 3}
-  shotFlarePrefab: {fileID: 7586435399880887104, guid: 910f000e5b586d544b63afc5a852efde,
-    type: 3}
+  flare: {fileID: 7586435399880887104, guid: 910f000e5b586d544b63afc5a852efde, type: 3}
   firePoint: {fileID: 5587988929015476016}
   fireRate: 2
 --- !u!58 &694444879094676073
@@ -414,6 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   deathEffect: {fileID: 4765684113634593381, guid: 046fae27881c0be499ea4da31a61eef2,
+    type: 3}
+  hitEffect: {fileID: 1148946567910968328, guid: 9ffc8f63566d2ce47a066b7931b0c5e7,
     type: 3}
   healthBarPosition: {fileID: 1287426100}
   elementSlider: {fileID: 1620857985}
