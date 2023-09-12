@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static int CurrentLevel = 1;
     public static bool GamePaused = false;
     private int enemyCount;
+    public static GameObject Camera { get; set; }
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckIfWon(GameObject enemy)
     {
-        enemyCount--;
+        enemyCount = FindObjectsOfType<EnemyHealth>().Length - 1;
         Debug.Log("enemyCount" + enemyCount);
         if (enemyCount == 0)
         {

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemyGunsliger : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float minDistanceToPlayer = 1.5f; // Minimum distance to maintain from the player
-
+    private float initialSpeed;
     public GameObject bulletPrefab; // The bullet prefab
     public GameObject flare; // The flare 
     public Transform firePoint; // The point from where bullets are fired
@@ -22,6 +22,7 @@ public class EnemyGunsliger : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialSpeed = moveSpeed;
         enemyHealth = GetComponent<EnemyHealth>(); // Assign the EnemyHealth component
     }
 
@@ -100,5 +101,18 @@ public class EnemyGunsliger : MonoBehaviour
             target = null;
             isShooting = false; // Reset the shooting flag
         }
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = initialSpeed;
+    }
+    public void DecreaseSpeed(float amount)
+    {
+        if(moveSpeed > 0)
+        {
+            moveSpeed -= amount;
+        } 
+        
     }
 }

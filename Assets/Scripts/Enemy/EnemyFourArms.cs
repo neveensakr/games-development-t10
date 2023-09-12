@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemyFourArms : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float minDistanceToPlayer = 1f; // Minimum distance to maintain from the player
-
-    
 
     private Transform target;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
     private EnemyHealth enemyHealth;
-    private bool canPunch = false;
+    public bool canPunch = false;
     private Animator animator;
+    private float initialSpeed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialSpeed = moveSpeed;
         enemyHealth = GetComponent<EnemyHealth>(); // Assign the EnemyHealth component
         animator = GetComponent<Animator>();
         animator.speed = 0;
@@ -82,10 +82,12 @@ public class EnemyFourArms : MonoBehaviour
     // Call this method when the enemy to toggle if damage is going to be dealt
     public void ToggleDamageForHands(bool canDamage)
     {
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < this.gameObject.transform.childCount; i++)
         {
             BoxCollider2D child = this.gameObject.transform.GetChild(i).gameObject.GetComponent<BoxCollider2D>();
-            child.enabled = canDamage;
+            if (child) {
+                child.enabled = canDamage;
+            }
         }
     }
 
@@ -104,5 +106,17 @@ public class EnemyFourArms : MonoBehaviour
             target = null;
             //canPunch = false; // Reset the punching flag
         }
+    }
+    public void ResetSpeed()
+    {
+        moveSpeed = initialSpeed;
+    }
+    public void DecreaseSpeed(float amount)
+    {
+        if (moveSpeed > 0)
+        {
+            moveSpeed -= amount;
+        }
+
     }
 }

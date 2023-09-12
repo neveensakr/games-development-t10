@@ -102,8 +102,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 32ccae41df88dde4ebace15cc7525cbe, type: 3}
   - {fileID: 21300000, guid: 2f4dd1cfbba03d549b730b41bb9c499d, type: 3}
   - {fileID: 21300000, guid: d07f0e9b432f22d4b8c96081d64407d1, type: 3}
+  FlareSprites: []
   IsActive: 0
-  numBullets: 20
+  numBullets: 10
   spreadAngle: 25
   cooldownTime: 200
 --- !u!1 &1596967949161315286

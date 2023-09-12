@@ -54,11 +54,11 @@ public class ShotGun : Weapon
                 Bullet bullet = Instantiate(bulletPrefab, FirePoint.position, bulletRotation).GetComponent<Bullet>();
                 bullet.owner = Characters.Player;
                 bullet.bulletDamage = Damage;
-                AudioManager.Instance.PlayerShootSound(); // Play the shooting sound
 
                 canFire = false;
                 cooldownTime = 1f;
             }
+            AudioManager.Instance.PlayerShootSound(); // Play the shooting sound
         }
     }
 }
