@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get => _instance; }
 
-    public AudioClip playerShootSound,  playerHitSound, playerDeathSound, enemyDefeatSound, playerSwitchWeaponSound; // New sound effect clips
+    public AudioClip playerShootSound,  playerHitSound, playerDeathSound, enemyDefeatSound, playerSwitchWeaponSound, winSound, loseSound; // New sound effect clips
     public AudioSource effectAudioSource;
 
     private void Awake()
@@ -59,6 +59,20 @@ public class AudioManager : MonoBehaviour
     {
         effectAudioSource.Stop();
         effectAudioSource.clip = playerSwitchWeaponSound;
+        effectAudioSource.Play();
+    }
+    // When we win
+    public void WinSound()
+    {
+        effectAudioSource.Stop();
+        effectAudioSource.clip = winSound;
+        effectAudioSource.Play();
+    }
+    // When we lose
+    public void LoseSound()
+    {
+        effectAudioSource.Stop();
+        effectAudioSource.clip = loseSound;
         effectAudioSource.Play();
     }
 

@@ -339,12 +339,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: b442123a67071894ca2beeb4a6185aae, type: 3}
+      objectReference: {fileID: 8300000, guid: 1400b3403301b4adcb9a141d58526a05, type: 3}
     - target: {fileID: 4537984630312199855, guid: 91cf7c9fb11724077a0b6ae3214d1dc4,
         type: 3}
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4537984630312199856, guid: 91cf7c9fb11724077a0b6ae3214d1dc4,
+        type: 3}
+      propertyPath: winSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+    - target: {fileID: 4537984630312199856, guid: 91cf7c9fb11724077a0b6ae3214d1dc4,
+        type: 3}
+      propertyPath: loseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
     - target: {fileID: 4537984630312199857, guid: 91cf7c9fb11724077a0b6ae3214d1dc4,
         type: 3}
       propertyPath: m_RootOrder
