@@ -81,11 +81,9 @@ public class ElementHealthBar : MonoBehaviour
                 elementTime = 0;
                 if (GetComponent<EnemyController>()) {
                     GetComponent<EnemyController>().ResetSpeed();
-                    GetComponent<EnemyController>().isShooting = true;
                 }
                 else {
                     GetComponent<EnemyFourArms>().ResetSpeed();
-                    GetComponent<EnemyFourArms>().canPunch = true;
                 }
                 
                 GameObject frostEffect = this.gameObject.transform.GetChild(3).gameObject;

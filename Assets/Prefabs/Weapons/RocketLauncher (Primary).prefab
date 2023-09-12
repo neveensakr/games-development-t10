@@ -126,11 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 2655771673189819134}
-  Damage: 20
+  Damage: 50
   Elements: 020000000100000000000000
   Skins:
   - {fileID: 21300000, guid: 178c10cbfa22ad54cb7dd175f8ac1e2c, type: 3}
   - {fileID: 21300000, guid: b0c6d82dedf755e429fa5f3589d27415, type: 3}
   - {fileID: 21300000, guid: 263dd0108a2dbd84ab3aeaca43749c11, type: 3}
+  FlareSprites: []
   IsActive: 0
   cooldownTime: 5
