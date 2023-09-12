@@ -34,6 +34,7 @@ public class EndScreenManager : MonoBehaviour
         if (won)
         {
             resultTxt.SetText("Success!");
+            AudioManager.Instance.WinSound(); // Play the win sound
             if (GameManager.CurrentLevel == 4)
             {
                 nextLevelBtn.SetActive(false);
@@ -42,6 +43,7 @@ public class EndScreenManager : MonoBehaviour
         else
         {
             resultTxt.SetText("Hard Luck!");
+            AudioManager.Instance.LoseSound(); // Play the lose sound
             nextLevelBtn.GetComponentInChildren<TextMeshProUGUI>().SetText("Try Again");
         }
     }
