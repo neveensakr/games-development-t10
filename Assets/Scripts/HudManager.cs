@@ -17,11 +17,7 @@ public class HudManager : MonoBehaviour
 
     public GameObject[] Grenade;
 
-    public GameObject[] PauseButton;
-
-    public CanvasRenderer BooletCount;
-    public CanvasRenderer GranaideCount;
-    public CanvasRenderer Slider;
+    public Image Slider;
     private int currentModelIndex = 0; // Index of the currently active model
     private string[] colors = new string[] { "#ED7D31", "#5B9BD5", "#BDD7EE" };
 
@@ -43,8 +39,8 @@ public class HudManager : MonoBehaviour
 
     void Start()
     {
-
-        // SwitchSkins(2);
+        // Always start with fire
+        SwitchSkins(0);
     }
 
     // Update is called once per frame
@@ -56,30 +52,28 @@ public class HudManager : MonoBehaviour
     public void SwitchSkins(int newIndex)
     {
         Debug.Log("Switching Skins in Hud manager!");
-        PrimaryWeapon[currentModelIndex].SetActive(false);
-        SecondaryWeapon[currentModelIndex].SetActive(false);
-        Fire[currentModelIndex].SetActive(false);
-        Sheild[currentModelIndex].SetActive(false);
-        Grenade[currentModelIndex].SetActive(false);
-        PauseButton[currentModelIndex].SetActive(false);
+        Color color = HexToColor(colors[newIndex]);
+        // Changing Slider Color first
+        Slider.color = color;
 
-        currentModelIndex = newIndex;
+        // Loop through each element and deactivate the current 
+        // model and activate the new model
+        // Create an element list and loop through it for deactivate and active
+        GameObject[][] elements = new GameObject[][] { PrimaryWeapon, SecondaryWeapon,
+        Fire, Sheild, Grenade};
 
-        PrimaryWeapon[currentModelIndex].SetActive(true);
-        SecondaryWeapon[currentModelIndex].SetActive(true);
-        Fire[currentModelIndex].SetActive(true);
-        Sheild[currentModelIndex].SetActive(true);
-        Grenade[currentModelIndex].SetActive(true);
-        PauseButton[currentModelIndex].SetActive(true);
-
-        // Change color of text and others
-        Color color = HexToColor(colors[currentModelIndex]);
-        Image[] images = FindObjectsOfType<Image>();
-
-        // Change the color of each Text component
-        foreach (Image image in images)
+        foreach (GameObject[] element in elements)
         {
+            element[currentModelIndex].SetActive(false);
+            element[newIndex].SetActive(true);
+
+            // Need to change the color of the image
+            Image image = element[newIndex].GetComponent<Image>();
             image.color = color;
         }
+
+        // Change the current model index to the new index
+        currentModelIndex = newIndex;
+        
     }
 }
