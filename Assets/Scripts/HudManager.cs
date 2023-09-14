@@ -83,13 +83,3 @@ public class HudManager : MonoBehaviour
         }
     }
 }
-public void LoadTargetedScene()
-    {
-        // Add DEbug log
-        Debug.Log("Loading Scene");
-        //Enable a ui panel which show a text Loading scene
-        // uiPanel.gameObject.SetActive(true);
-        SceneManager.LoadSceneAsync("PauseMenuScene"); //TestScene is the name desired scene
-        //Disable ui panel
-        // uiPanel.gameObject.SetActive(false);
-    }
