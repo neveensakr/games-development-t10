@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("PLAYER WON");
             CurrentLevel++;
+            Player.GetComponent<PlayerHealth>().InitialiseHealth();
             EndScreenManager.Instance.Setup(true);
         }
     }

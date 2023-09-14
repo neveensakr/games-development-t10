@@ -114,7 +114,7 @@ public class PlayerHealth : MonoBehaviour
         healthIncreaseCoroutine = null;
     }
 
-    private void InitialiseHealth()
+    public void InitialiseHealth()
     {
         currentHealth = maxHealth; // Initialize current health to max health at the start
         lastDamageTime = Time.time; // Initialize the last damage time
