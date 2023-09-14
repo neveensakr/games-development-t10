@@ -380,7 +380,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 27
+  m_Radius: 60
 --- !u!114 &6735301107567426459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0ed065d45cc479a8aa61180e35ae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
   deathEffect: {fileID: 4765684113634593381, guid: 046fae27881c0be499ea4da31a61eef2,
     type: 3}
   hitEffect: {fileID: 3116420641477730781, guid: af8919ca8efd74f44911471ef2c346f5,
@@ -412,8 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621ddcf0d9defe84984080a633e202c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   minDistanceToPlayer: 3
+  canPunch: 0
 --- !u!114 &6356813142764002027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,6 +1218,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2627819832681794774, guid: 1bab685b782cc7043bbe8e5378e42b02,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627819832681794774, guid: 1bab685b782cc7043bbe8e5378e42b02,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2627819833473259212, guid: 1bab685b782cc7043bbe8e5378e42b02,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1225,6 +1236,11 @@ PrefabInstance:
     - target: {fileID: 2627819833473259212, guid: 1bab685b782cc7043bbe8e5378e42b02,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627819833473259212, guid: 1bab685b782cc7043bbe8e5378e42b02,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6998715301330968055, guid: 1bab685b782cc7043bbe8e5378e42b02,
