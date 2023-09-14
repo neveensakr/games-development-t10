@@ -97,6 +97,9 @@ public class WeaponManager : MonoBehaviour
         ActiveRocket = Rockets[Array.IndexOf(Elements, ActiveElement)];
         GetComponent<PlayerHealth>().deathEffect = GrenadeExplosion[Array.IndexOf(Elements, ActiveElement)];
         GetComponent<PlayerHealth>().hitEffect = HitEffects[Array.IndexOf(Elements, ActiveElement)];
+
+        // get the HudManager Component and call the SwitchSkins method
+        HudManager.Instance.SwitchSkins(nextIndex);
     }
 
     private void ThrowGrenade()
