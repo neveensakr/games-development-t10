@@ -64,7 +64,6 @@ public class HudManager : MonoBehaviour
 
         foreach (GameObject[] element in elements)
         {
-            Debug.Log(element);
             element[currentModelIndex].SetActive(false);
             element[newIndex].SetActive(true);
 
