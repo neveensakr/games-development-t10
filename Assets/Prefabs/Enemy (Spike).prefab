@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0ed065d45cc479a8aa61180e35ae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   deathEffect: {fileID: 4765684113634593381, guid: 046fae27881c0be499ea4da31a61eef2,
     type: 3}
   hitEffect: {fileID: 1148946567910968328, guid: 9ffc8f63566d2ce47a066b7931b0c5e7,
@@ -512,6 +512,7 @@ MonoBehaviour:
   flare: {fileID: 296470805993924729}
   firePoint: {fileID: 5587988929015476016}
   fireRate: 1
+  isShooting: 0
 --- !u!1 &694444879777926378
 GameObject:
   m_ObjectHideFlags: 0
