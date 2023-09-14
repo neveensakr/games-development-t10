@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 // Importing the Element enum from Weapons/WeaponManager.cs
 
 public class HudManager : MonoBehaviour
@@ -16,6 +17,9 @@ public class HudManager : MonoBehaviour
     public GameObject[] Sheild;
 
     public GameObject[] Grenade;
+
+    [SerializeField] private TextMeshProUGUI totalEnemies;
+    [SerializeField] private TextMeshProUGUI remainingEnemies;
 
     public Image Slider;
     private int currentModelIndex = 0; // Index of the currently active model
@@ -30,7 +34,8 @@ public class HudManager : MonoBehaviour
         return color;
     }
 
-    private void Awake(){
+    private void Awake()
+    {
         if (Instance == null)
             Instance = this;
         else
@@ -41,12 +46,6 @@ public class HudManager : MonoBehaviour
     {
         // Always start with fire
         SwitchSkins(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SwitchSkins(int newIndex)
@@ -74,6 +73,24 @@ public class HudManager : MonoBehaviour
 
         // Change the current model index to the new index
         currentModelIndex = newIndex;
-        
+
+    }
+
+    public void SetupEnemyCount(int enemyCount) 
+    { 
+        if (enemyCount >= 0)
+        {
+            totalEnemies.SetText(enemyCount.ToString("00"));
+            EnemyCountUpdate(enemyCount);
+        } else
+        {
+            totalEnemies.SetText("No Enemies");
+        }
+    }
+    public void EnemyCountUpdate(int enemyCount)
+    {
+       
+        remainingEnemies.SetText(enemyCount.ToString("00"));
+     
     }
 }

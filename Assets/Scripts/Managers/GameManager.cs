@@ -30,12 +30,14 @@ public class GameManager : MonoBehaviour
     {
         CurrentLevel = levelNumber;
         enemyCount = FindObjectsOfType<EnemyHealth>().Length;
+        HudManager.Instance.SetupEnemyCount(enemyCount);
         Player.SetActive(true);
     }
 
     public void CheckIfWon(GameObject enemy)
     {
         enemyCount = FindObjectsOfType<EnemyHealth>().Length - 1;
+        HudManager.Instance.EnemyCountUpdate(enemyCount);
         Debug.Log("enemyCount" + enemyCount);
         if (enemyCount == 0)
         {

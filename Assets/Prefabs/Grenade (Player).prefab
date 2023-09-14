@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 20
-  damageRadius: 3
-  grenadeDamage: 10
+  damageRadius: 6
+  grenadeDamage: 30
   owner: 0
   explosionEffect: {fileID: 1629317759437974473, guid: 3d6fc22c9d11485418cfd7a74a8bd933,
     type: 3}
