@@ -67,7 +67,7 @@ public class WeaponManager : MonoBehaviour
             else if (Input.GetMouseButtonDown(0)) {
                 ActiveWeapon.Fire(ActiveBullet);
             }
-            else if (Input.GetMouseButtonDown(1)) ThrowGrenade();
+            else if (Input.GetKeyDown(KeyCode.Space)) ThrowGrenade();
             else if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchElement(Element.Fire);
             else if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchElement(Element.Lightning);
             else if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchElement(Element.Frost);

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         enemyCount = FindObjectsOfType<EnemyHealth>().Length;
         HudManager.Instance.SetupEnemyCount(enemyCount);
         Player.SetActive(true);
+        PauseMenuManager.Instance.ResumeGame();
     }
 
     public void CheckIfWon(GameObject enemy)
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("PLAYER WON");
             CurrentLevel++;
+            Player.GetComponent<PlayerHealth>().InitialiseHealth();
             EndScreenManager.Instance.Setup(true);
         }
     }
