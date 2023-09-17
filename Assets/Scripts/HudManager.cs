@@ -10,7 +10,6 @@ using TMPro;
 public class HudManager : MonoBehaviour
 {
     public static HudManager Instance;
-    public GameObject[] PrimaryWeapon;
     public GameObject[] SecondaryWeapon;
     public GameObject[] PistolSkins;
     public GameObject[] AssaultRifleSkins;
@@ -62,8 +61,7 @@ public class HudManager : MonoBehaviour
         // Loop through each element and deactivate the current 
         // model and activate the new model
         // Create an element list and loop through it for deactivate and active
-        GameObject[][] elements = new GameObject[][] { PrimaryWeapon, SecondaryWeapon,
-        Fire, Sheild, Grenade};
+        GameObject[][] elements = new GameObject[][] { SecondaryWeapon, Fire, Sheild, Grenade};
 
         foreach (GameObject[] element in elements)
         {
