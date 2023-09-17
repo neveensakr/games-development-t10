@@ -10,8 +10,11 @@ using TMPro;
 public class HudManager : MonoBehaviour
 {
     public static HudManager Instance;
-    public GameObject[] PrimaryWeapon;
     public GameObject[] SecondaryWeapon;
+    public GameObject[] PistolSkins;
+    public GameObject[] AssaultRifleSkins;
+    public GameObject[] ShotGunSkins;
+    public GameObject[] RocketLauncher;
 
     public GameObject[] Fire;
     public GameObject[] Sheild;
@@ -58,8 +61,7 @@ public class HudManager : MonoBehaviour
         // Loop through each element and deactivate the current 
         // model and activate the new model
         // Create an element list and loop through it for deactivate and active
-        GameObject[][] elements = new GameObject[][] { PrimaryWeapon, SecondaryWeapon,
-        Fire, Sheild, Grenade};
+        GameObject[][] elements = new GameObject[][] { SecondaryWeapon, Fire, Sheild, Grenade};
 
         foreach (GameObject[] element in elements)
         {
@@ -74,6 +76,31 @@ public class HudManager : MonoBehaviour
         // Change the current model index to the new index
         currentModelIndex = newIndex;
 
+    }
+
+    public void SwitchWeapons(int newIndex)
+    {
+        SecondaryWeapon[currentModelIndex].SetActive(false);
+
+        switch (newIndex)
+        {
+            case 0:
+                SecondaryWeapon = PistolSkins;
+                break;
+            case 1:
+                SecondaryWeapon = ShotGunSkins;
+                break;
+            case 2:
+                SecondaryWeapon = AssaultRifleSkins;
+                break;
+            case 3:
+                SecondaryWeapon = RocketLauncher;
+                break;
+        }
+        
+        SecondaryWeapon[currentModelIndex].SetActive(true);
+        Image image = SecondaryWeapon[currentModelIndex].GetComponent<Image>();
+        image.color = HexToColor(colors[currentModelIndex]);
     }
 
     public void SetupEnemyCount(int enemyCount) 

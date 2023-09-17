@@ -83,6 +83,7 @@ public class WeaponManager : MonoBehaviour
         ActiveWeapon.SwitchSkins(ActiveElement);
         AudioManager.Instance.PlayerSwitchWeaponSound(); // Play the weapon switch sound
         _currentWeaponIndex = nextIndex;
+        HudManager.Instance.SwitchWeapons(_currentWeaponIndex);
     }
 
     private void SwitchElement(Element element)
