@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         HudManager.Instance.SetupEnemyCount(enemyCount);
         Player.SetActive(true);
         PauseMenuManager.Instance.ResumeGame();
+        Player.GetComponent<PlayerHealth>().InitialiseHealth();
     }
 
     public void CheckIfWon(GameObject enemy)
