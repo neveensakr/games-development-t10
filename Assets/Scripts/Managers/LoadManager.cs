@@ -211,6 +211,7 @@ public class LoadManager : MonoBehaviour
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 1"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 2"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("Level 3"));
+        yield return Instance.StartCoroutine(UnloadSceneRoutine("HudScene"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("EndScreenScene"));
         yield return Instance.StartCoroutine(UnloadSceneRoutine("PauseMenuScene"));
     }
