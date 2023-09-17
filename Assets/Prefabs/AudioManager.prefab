@@ -44,7 +44,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 9fa36c78a74b947b2babf1788a59a3a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -179,6 +179,8 @@ MonoBehaviour:
   enemyDefeatSound: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
   playerSwitchWeaponSound: {fileID: 8300000, guid: db1ec201e216f448d95230aac64fa851,
     type: 3}
+  winSound: {fileID: 0}
+  loseSound: {fileID: 0}
   effectAudioSource: {fileID: 4537984630568126451}
 --- !u!1 &4537984630568126449
 GameObject:
