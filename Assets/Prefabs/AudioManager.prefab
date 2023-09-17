@@ -174,13 +174,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShootSound: {fileID: 8300000, guid: dc11d9fce2da3489cb3c95d01d372239, type: 3}
-  playerHitSound: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 04dfc2505a81b47148f14409aa13fac9, type: 3}
   playerDeathSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
   enemyDefeatSound: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
   playerSwitchWeaponSound: {fileID: 8300000, guid: db1ec201e216f448d95230aac64fa851,
     type: 3}
-  winSound: {fileID: 0}
-  loseSound: {fileID: 0}
+  winSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  loseSound: {fileID: 8300000, guid: a0ca8964c08d54c5dbebf245bdc474ca, type: 3}
   effectAudioSource: {fileID: 4537984630568126451}
 --- !u!1 &4537984630568126449
 GameObject:
